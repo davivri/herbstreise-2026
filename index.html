@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f3d31">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Herbstreise">
+<title>Herbstreise 2026 · Südtirol & Gardasee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ecdf; --card:#fffaf1; --ink:#1c2822; --muted:#66706a; --line:#e3d6c1;
+  --forest:#24493a; --rust:#c0532a; --lake:#2a6b8b; --gold:#c98f22; --berry:#8e3b46;
+  --r:18px; --shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(40,30,10,.25);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--body);-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+a{color:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fbf4e6;background:linear-gradient(170deg,#173328 0%,#24493a 45%,#2a6b8b 100%);padding:calc(28px + env(safe-area-inset-top)) 0 0}
+.hero .kicker{font:700 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.hero h1{font:900 clamp(44px,13vw,72px)/.92 var(--display);margin:10px 0 6px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;font-weight:500;color:#f2c46b}
+.hero .sub{font:500 17px/1.35 var(--body);opacity:.9;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 8px;text-align:center;backdrop-filter:blur(4px)}
+.stat b{display:block;font:800 22px/1 var(--display)}
+.stat span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.mountains{display:block;width:100%;height:auto;margin-top:-4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.legend span{font:600 12px/1 var(--body);padding:7px 10px;border-radius:99px;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;gap:6px}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+/* STICKY NAV */
+.nav{position:sticky;top:0;z-index:20;background:rgba(244,236,223,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.nav .row{display:flex;gap:6px;overflow-x:auto;padding:8px 16px;scrollbar-width:none;max-width:680px;margin:0 auto}
+.nav .row::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;font:700 13px/1 var(--body);padding:9px 12px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav .days a{min-width:44px;text-align:center;padding:7px 8px;font-size:12px;border-left:4px solid var(--rc)}
+.nav .days a small{display:block;font-weight:600;font-size:9px;opacity:.6;letter-spacing:.05em;margin-bottom:2px}
+.nav .days a.today{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* SECTIONS */
+section{padding:26px 0 6px}
+.h2{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.h2 h2{font:800 30px/1 var(--display);margin:0;letter-spacing:-.01em}
+.h2 .n{font:700 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px}
+.note{font-size:13px;color:var(--muted)}
+
+/* MAP */
+.mapcard{padding:8px 8px 14px}
+.map{width:100%;height:auto;display:block}
+.map .lbl{font:700 11px var(--body);fill:var(--ink);paint-order:stroke;stroke:#fffaf1;stroke-width:4px;stroke-linejoin:round}
+.map .lbl.sm{font-weight:600;font-size:9.5px;fill:#4d5852}
+.map .cty{font:800 9px var(--body);letter-spacing:.3em;fill:#b7aa93}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;padding:4px 10px 10px;font-size:12px;color:var(--muted)}
+.maplegend b{display:inline-block;width:22px;height:0;border-top:4px solid var(--rust);vertical-align:middle;margin-right:6px;border-radius:2px}
+.maplegend b.ret{border-top:4px dashed var(--gold)}
+.btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;cursor:pointer;font:700 14px/1.1 var(--body);padding:12px 14px;border-radius:12px;background:var(--ink);color:#fff}
+.btn.rust{background:var(--rust)} .btn.gold{background:var(--gold)} .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{font-size:13px;padding:9px 12px;border-radius:10px}
+
+/* KM BARS */
+.legs{display:grid;gap:7px;margin-top:4px}
+.leg{display:grid;grid-template-columns:44px 1fr 60px;align-items:center;gap:8px;font-size:13px}
+.leg .d{font-weight:800}
+.leg .bar{height:12px;border-radius:99px;background:#efe5d4;overflow:hidden}
+.leg .bar i{display:block;height:100%;border-radius:99px;background:var(--rc)}
+.leg .k{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* WEATHER */
+.wx{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}
+.wx::-webkit-scrollbar{display:none}
+.wxd{flex:none;width:68px;text-align:center;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--rc);border-radius:14px;padding:8px 4px}
+.wxd small{display:block;font:700 10px var(--body);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.wxd .i{font-size:26px;line-height:1.2;display:block;margin:2px 0}
+.wxd b{font:800 15px var(--display)}
+.wxd em{display:block;font-style:normal;font-size:10px;color:var(--muted);margin-top:2px;line-height:1.2}
+.wxd.pool{background:#e4f0f5;border-color:#bcd7e3}
+
+/* DAY CARDS */
+.region{margin:26px 0 10px;display:flex;align-items:center;gap:10px}
+.region h3{font:800 13px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;margin:0;color:var(--rc)}
+.region::after{content:"";flex:1;height:2px;background:var(--rc);opacity:.25;border-radius:2px}
+.r-an{--rc:var(--rust)} .r-st{--rc:var(--forest)} .r-ga{--rc:var(--lake)} .r-rk{--rc:var(--gold)}
+.day{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin:0 0 14px;overflow:hidden}
+.day::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--rc)}
+.day.today{outline:3px solid var(--ink);outline-offset:2px}
+.day.today .dhead::after{content:"HEUTE";position:absolute;top:12px;right:12px;background:var(--ink);color:#fff;font:800 10px/1 var(--body);letter-spacing:.15em;padding:6px 8px;border-radius:6px}
+.dhead{position:relative;display:flex;gap:14px;padding:16px 16px 10px 22px}
+.date{flex:none;width:58px;text-align:center;border-radius:14px;background:var(--rc);color:#fff;padding:8px 0 7px}
+.date .dow{display:block;font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.date .dn{display:block;font:900 30px/1 var(--display);margin:3px 0 1px}
+.date .mo{display:block;font:600 10px/1 var(--body);opacity:.8}
+.dtitle{min-width:0}
+.dtitle .tag{font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--rc)}
+.dtitle h4{font:800 21px/1.15 var(--display);margin:5px 0 8px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font:600 12px/1 var(--body);padding:6px 9px;border-radius:99px;background:#f1e8d8;color:#3c463f;white-space:nowrap}
+.pill.wet{background:#dfeef5;color:#20536b}
+.pill.sun{background:#fbecc8;color:#7a5410}
+.body{padding:0 16px 14px 22px}
+.act{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:12px 0;border-top:1px dashed var(--line)}
+.act:first-child{border-top:0}
+.act .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:#f3eadb}
+.act h5{font:800 16px/1.25 var(--body);margin:2px 0 3px}
+.act p{margin:0 0 4px;font-size:14px;color:#38433d}
+.act ul{margin:4px 0 0;padding-left:18px;font-size:14px;color:#38433d}
+.act li{margin:2px 0}
+.ok{display:inline-block;font:800 10px/1 var(--body);letter-spacing:.06em;color:#2f6b3d;background:#e0efe2;padding:4px 6px;border-radius:6px;vertical-align:2px;margin-left:4px}
+.kids{display:grid;gap:6px;margin-top:8px}
+.kid{font-size:13px;padding:8px 10px;border-radius:10px;background:#f6efe2;display:flex;gap:8px}
+.kid b{flex:none}
+.alt{margin:8px 0 2px;padding:10px 12px;border-radius:12px;background:#e9f2f6;border:1px solid #cfe2ea;font-size:13.5px}
+.alt b{color:#1f5670}
+.warn{margin:8px 0 2px;padding:10px 12px;border-radius:12px;background:#fbefd9;border:1px solid #f0d9a8;font-size:13.5px}
+.navs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
+/* NIGHT */
+.night{margin:4px 12px 12px 18px;border-radius:14px;background:#efe6d6;border:1px solid var(--line)}
+.night summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 12px;font-size:14px}
+.night summary::-webkit-details-marker{display:none}
+.night .moon{width:30px;height:30px;border-radius:50%;background:#1f2f45;color:#f7d77a;display:grid;place-items:center;font-size:15px;flex:none}
+.night .sum-txt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sum-status{font:800 10px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;border-radius:6px;background:#fff;color:var(--muted)}
+.sum-status[data-s="idee"]{background:#fbecc8;color:#7a5410}
+.sum-status[data-s="fix"]{background:#2f6b3d;color:#fff}
+.night summary::after{content:"✎";font-size:15px;color:var(--muted)}
+.night[open] summary::after{content:"▴"}
+.nform{display:grid;gap:10px;padding:0 12px 14px}
+.nform label{display:grid;gap:4px;font:700 12px/1.2 var(--body);color:#4a554e}
+.nform input,.nform textarea{font:500 16px/1.3 var(--body);color:var(--ink);background:#fffaf1;border:1.5px solid var(--line);border-radius:10px;padding:10px 11px;width:100%;-webkit-appearance:none}
+.nform input:focus,.nform textarea:focus{outline:none;border-color:var(--rc)}
+.st{display:flex;gap:6px}
+.st button{flex:1;font:700 13px var(--body);padding:10px 6px;border-radius:10px;border:1.5px solid var(--line);background:#fffaf1;color:var(--muted);cursor:pointer}
+.st button.on[data-s="offen"]{background:#fff;border-color:#9aa39d;color:var(--ink)}
+.st button.on[data-s="idee"]{background:#fbecc8;border-color:#e2b85c;color:#6b4a0c}
+.st button.on[data-s="fix"]{background:#2f6b3d;border-color:#2f6b3d;color:#fff}
+.nrow{display:flex;flex-wrap:wrap;gap:8px}
+
+/* OVERVIEW */
+.nlist{display:grid;gap:6px}
+.nl{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--rc);text-decoration:none}
+.nl .dt{font:800 13px/1.1 var(--body)}
+.nl .dt small{display:block;font-weight:600;color:var(--muted);font-size:11px}
+.nl .nm{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nl .nm.empty{color:var(--muted);font-style:italic}
+.progress{height:10px;border-radius:99px;background:#e9dfcc;overflow:hidden;margin:6px 0 12px}
+.progress i{display:block;height:100%;background:#2f6b3d;width:0;transition:width .4s}
+
+/* SWAPS & CHECKS */
+.swap{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);font-size:14px}
+.swap:first-of-type{border-top:0}
+.swap .x{font-size:18px;color:var(--muted)}
+.swap span{background:#f3eadb;padding:8px 10px;border-radius:10px;text-align:center;font-weight:600}
+.swap span.in{background:#dfeef5;color:#1f5670}
+.swaplabel{font:800 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--line);font-size:14.5px;cursor:pointer}
+.checks label:first-child{border-top:0}
+.checks input{flex:none;width:22px;height:22px;accent-color:#2f6b3d;margin-top:1px}
+.checks input:checked + span{color:var(--muted);text-decoration:line-through}
+.checks small{display:block;color:var(--muted);font-size:12.5px;text-decoration:none}
+footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:12px;color:var(--muted)}
+
+#toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;font:700 13px var(--body);padding:10px 16px;border-radius:99px;transition:.25s;z-index:50;pointer-events:none}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#todayBtn{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;display:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+.banner{display:none;margin:14px 0 0;padding:12px 14px;border-radius:12px;background:#f8dede;border:1px solid #e9b4b4;font-size:13.5px}
+
+@media (prefers-reduced-motion:no-preference){
+  .day,.card{animation:rise .5s both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">19.–31. Oktober 2026 · Dachzelt-Roadtrip</div>
+    <h1>Herbst&shy;reise <em>2026</em></h1>
+    <p class="sub">Potsdam → Südtirol → Gardasee → Potsdam</p>
+    <div class="stats">
+      <div class="stat"><b>13</b><span>Tage</span></div>
+      <div class="stat"><b>12</b><span>Nächte</span></div>
+      <div class="stat"><b>~2.400</b><span>km</span></div>
+      <div class="stat"><b>≤300</b><span>km/Tag</span></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:#e0784a"></i>Anreise</span>
+      <span><i style="background:#7fc29b"></i>Südtirol</span>
+      <span><i style="background:#7ec3e3"></i>Gardasee</span>
+      <span><i style="background:#f2c46b"></i>Heimreise</span>
+    </div>
+    <div class="banner" id="nostore">Speichern geht in dieser Ansicht nicht. Öffne die Seite in Safari oder Chrome, dann bleiben deine Übernachtungen gespeichert.</div>
+  </div>
+  <svg class="mountains" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 60 L0 38 L40 20 L62 32 L98 8 L130 30 L160 18 L196 40 L228 14 L262 34 L290 22 L330 42 L362 16 L400 34 L400 60Z" fill="#f4ecdf" opacity=".22"/>
+    <path d="M0 60 L0 46 L52 30 L84 44 L120 26 L168 48 L210 30 L252 46 L300 28 L346 48 L400 36 L400 60Z" fill="#f4ecdf"/>
+  </svg>
+</header>
+
+<nav class="nav">
+  <div class="row">
+    <a href="#route">🗺 Route</a><a href="#wetter">⛅ Wetter</a><a href="#tage">📅 Tage</a><a href="#naechte">🌙 Nächte</a><a href="#regen">☔ Plan B</a><a href="#check">✅ Checkliste</a><a href="#backup">💾 Backup</a>
+  </div>
+  <div class="row days">
+    <a href="#d19" class="r-an" data-d="2026-10-19"><small>MO</small>19</a>
+    <a href="#d20" class="r-an" data-d="2026-10-20"><small>DI</small>20</a>
+    <a href="#d21" class="r-an" data-d="2026-10-21"><small>MI</small>21</a>
+    <a href="#d22" class="r-st" data-d="2026-10-22"><small>DO</small>22</a>
+    <a href="#d23" class="r-st" data-d="2026-10-23"><small>FR</small>23</a>
+    <a href="#d24" class="r-st" data-d="2026-10-24"><small>SA</small>24</a>
+    <a href="#d25" class="r-ga" data-d="2026-10-25"><small>SO</small>25</a>
+    <a href="#d26" class="r-ga" data-d="2026-10-26"><small>MO</small>26</a>
+    <a href="#d27" class="r-ga" data-d="2026-10-27"><small>DI</small>27</a>
+    <a href="#d28" class="r-rk" data-d="2026-10-28"><small>MI</small>28</a>
+    <a href="#d29" class="r-rk" data-d="2026-10-29"><small>DO</small>29</a>
+    <a href="#d30" class="r-rk" data-d="2026-10-30"><small>FR</small>30</a>
+    <a href="#d31" class="r-rk" data-d="2026-10-31"><small>SA</small>31</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ROUTE -->
+<section id="route">
+  <div class="h2"><h2>Die Route</h2><span class="n">Schleife</span></div>
+  <div class="card mapcard">
+    <svg class="map" viewBox="0 0 340 760" role="img" aria-label="Routenkarte">
+      <!-- borders -->
+      <path d="M10 522 L176 509 L330 452" fill="none" stroke="#cdbfa6" stroke-width="1.2" stroke-dasharray="3 4"/>
+      <path d="M10 588 L136 566 L330 560" fill="none" stroke="#cdbfa6" stroke-width="1.2" stroke-dasharray="3 4"/>
+      <!-- alps -->
+      <g fill="#e2d8c4" opacity=".9">
+        <path d="M30 600 l18 -34 l18 34z"/><path d="M58 610 l22 -44 l22 44z"/><path d="M150 590 l20 -38 l20 38z"/>
+        <path d="M180 600 l24 -46 l24 46z"/><path d="M226 590 l18 -34 l18 34z"/><path d="M256 596 l22 -40 l22 40z"/>
+        <path d="M150 650 l16 -30 l16 30z"/><path d="M40 650 l16 -30 l16 30z"/><path d="M196 560 l16 -30 l16 30z"/>
+      </g>
+      <g fill="#fffaf1" opacity=".9">
+        <path d="M74 576 l6 -10 l6 10z"/><path d="M198 564 l6 -10 l6 10z"/><path d="M272 566 l6 -10 l6 10z"/>
+      </g>
+      <text class="cty" x="200" y="150">DEUTSCHLAND</text>
+      <text class="cty" x="222" y="520">ÖSTERREICH</text>
+      <text class="cty" x="230" y="628">ITALIEN</text>
+      <!-- lake garda -->
+      <path d="M92 664 C96 676 98 690 99 702 C101 712 107 720 103 730 C98 739 82 739 76 731 C70 722 80 712 85 702 C89 692 89 678 92 664Z" fill="#9fcbe0" stroke="#6fa8c4" stroke-width="1"/>
+      <!-- return route -->
+      <polyline points="94,672 116,655 131,614 141,566 135,541 181,509 178,482 140,458 130,399 126,220 232,53" fill="none" stroke="#c98f22" stroke-width="4" stroke-dasharray="7 6" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- outbound route -->
+      <polyline points="232,53 161,252 100,334 160,442 174,485 176,511 129,541 135,566 125,614 114,598" fill="none" stroke="#c0532a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="114,598 125,614 132,606 125,614 111,655 94,672" fill="none" stroke="#2a6b8b" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- activity dots -->
+      <g fill="#fffaf1" stroke="#1c2822" stroke-width="2">
+        <circle cx="160" cy="442" r="4.5"/><circle cx="140" cy="458" r="4.5"/><circle cx="132" cy="606" r="4"/>
+        <circle cx="97" cy="688" r="4"/><circle cx="101" cy="716" r="4"/><circle cx="108" cy="724" r="4"/><circle cx="129" cy="541" r="4.5"/>
+      </g>
+      <!-- overnight markers -->
+      <g font-family="Figtree,sans-serif" font-weight="800" font-size="10" text-anchor="middle">
+        <circle cx="232" cy="53" r="11" fill="#1c2822"/><text x="232" y="57" fill="#fff">⌂</text>
+        <circle cx="161" cy="252" r="10" fill="#c0532a"/><text x="161" y="256" fill="#fff">1</text>
+        <circle cx="100" cy="334" r="10" fill="#c0532a"/><text x="100" y="338" fill="#fff">2</text>
+        <circle cx="174" cy="485" r="10" fill="#c0532a"/><text x="174" y="489" fill="#fff">3</text>
+        <rect x="94" y="588" width="26" height="18" rx="9" fill="#24493a"/><text x="107" y="601" fill="#fff" font-size="9">4–6</text>
+        <rect x="58" y="664" width="26" height="18" rx="9" fill="#2a6b8b"/><text x="71" y="677" fill="#fff" font-size="9">7–9</text>
+        <circle cx="129" cy="541" r="10" fill="#c98f22"/><text x="129" y="545" fill="#fff">10</text>
+        <circle cx="130" cy="399" r="10" fill="#c98f22"/><text x="130" y="403" fill="#fff">11</text>
+        <circle cx="126" cy="220" r="10" fill="#c98f22"/><text x="126" y="224" fill="#fff">12</text>
+      </g>
+      <!-- labels -->
+      <text class="lbl" x="248" y="57">Potsdam</text>
+      <text class="lbl" x="176" y="256">Hof</text>
+      <text class="lbl" x="56" y="224">Saalfeld</text><text class="lbl sm" x="40" y="236">Feengrotten</text>
+      <text class="lbl" x="34" y="332">Zirndorf</text><text class="lbl sm" x="30" y="344">Playmobil</text>
+      <text class="lbl" x="146" y="403">Ingolstadt</text>
+      <text class="lbl" x="170" y="440">Erding</text><text class="lbl sm" x="170" y="451">Therme</text>
+      <text class="lbl" x="66" y="458">München</text><text class="lbl sm" x="62" y="469">Hellabrunn</text>
+      <text class="lbl" x="190" y="489">Rosenheim</text>
+      <text class="lbl" x="146" y="539">Innsbruck</text><text class="lbl sm" x="146" y="550">Alpenzoo</text>
+      <text class="lbl sm" x="146" y="572">Brenner</text>
+      <text class="lbl" x="36" y="600">Meran</text><text class="lbl sm" x="10" y="612">Trauttmansdorff</text>
+      <text class="lbl" x="140" y="620">Bozen</text><text class="lbl sm" x="140" y="604">Ritten</text>
+      <text class="lbl" x="24" y="680">Riva</text><text class="lbl sm" x="16" y="691">Varone</text>
+      <text class="lbl sm" x="106" y="690">Malcesine · Monte Baldo</text>
+      <text class="lbl sm" x="114" y="716">Gardaland</text>
+      <text class="lbl sm" x="116" y="730">Natura Viva</text>
+      <text class="lbl" x="58" y="752" style="font-style:italic">Gardasee</text>
+    </svg>
+    <div class="maplegend"><span><b></b>Hinweg</span><span><b style="border-color:#2a6b8b"></b>Südtirol → Garda</span><span><b class="ret"></b>Rückweg</span><span>● Nacht-Nr.</span></div>
+    <div class="btnrow">
+      <a class="btn rust" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Potsdam&amp;destination=Riva%20del%20Garda&amp;waypoints=Hof%7CPlaymobil-FunPark%20Zirndorf%7CTherme%20Erding%7CRosenheim%7CMeran%7CBozen&amp;travelmode=driving">🗺 Hinweg in Maps</a>
+      <a class="btn gold" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Riva%20del%20Garda&amp;destination=Potsdam&amp;waypoints=Alpenzoo%20Innsbruck%7CTierpark%20Hellabrunn%7CIngolstadt%7CFeengrotten%20Saalfeld&amp;travelmode=driving">🗺 Rückweg in Maps</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="note" style="margin-bottom:8px"><b style="color:var(--ink)">Fahrkilometer pro Tag</b> (ca.)</div>
+    <div class="legs">
+      <div class="leg r-an"><span class="d">Mo 19</span><span class="bar"><i style="width:100%"></i></span><span class="k">300 km</span></div>
+      <div class="leg r-an"><span class="d">Di 20</span><span class="bar"><i style="width:50%"></i></span><span class="k">150 km</span></div>
+      <div class="leg r-an"><span class="d">Mi 21</span><span class="bar"><i style="width:92%"></i></span><span class="k">275 km</span></div>
+      <div class="leg r-st"><span class="d">Do 22</span><span class="bar"><i style="width:88%"></i></span><span class="k">265 km</span></div>
+      <div class="leg r-st"><span class="d">Fr 23</span><span class="bar"><i style="width:7%"></i></span><span class="k">~20 km</span></div>
+      <div class="leg r-st"><span class="d">Sa 24</span><span class="bar"><i style="width:4%"></i></span><span class="k">~10 km</span></div>
+      <div class="leg r-ga"><span class="d">So 25</span><span class="bar"><i style="width:44%"></i></span><span class="k">130 km</span></div>
+      <div class="leg r-ga"><span class="d">Mo 26</span><span class="bar"><i style="width:30%"></i></span><span class="k">≤140 km</span></div>
+      <div class="leg r-ga"><span class="d">Di 27</span><span class="bar"><i style="width:14%"></i></span><span class="k">~40 km</span></div>
+      <div class="leg r-rk"><span class="d">Mi 28</span><span class="bar"><i style="width:85%"></i></span><span class="k">255 km</span></div>
+      <div class="leg r-rk"><span class="d">Do 29</span><span class="bar"><i style="width:82%"></i></span><span class="k">245 km</span></div>
+      <div class="leg r-rk"><span class="d">Fr 30</span><span class="bar"><i style="width:95%"></i></span><span class="k">285 km</span></div>
+      <div class="leg r-rk"><span class="d">Sa 31</span><span class="bar"><i style="width:93%"></i></span><span class="k">280 km</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WEATHER -->
+<section id="wetter">
+  <div class="h2"><h2>Wetter-Plan</h2><span class="n">Stand 18.10.</span></div>
+  <div class="wx">
+    <div class="wxd r-an"><small>Di 20</small><span class="i">⛅</span><b>17°</b><em>Erding</em></div>
+    <div class="wxd r-an pool"><small>Mi 21</small><span class="i">🌧</span><b>12°</b><em>Regen →<br>Therme</em></div>
+    <div class="wxd r-st"><small>Do 22</small><span class="i">☁️</span><b>18°</b><em>trocken</em></div>
+    <div class="wxd r-st"><small>Fr 23</small><span class="i">⛅</span><b>16°</b><em>5–9 h Sonne</em></div>
+    <div class="wxd r-st pool"><small>Sa 24</small><span class="i">☁️</span><b>12°</b><em>grau →<br>Therme</em></div>
+    <div class="wxd r-ga"><small>So 25</small><span class="i">🌦</span><b>10°</b><em>evtl. Regen</em></div>
+    <div class="wxd r-ga"><small>Mo 26</small><span class="i">⛅</span><b>16°</b><em>trocken</em></div>
+    <div class="wxd r-ga"><small>Di 27</small><span class="i">☀️</span><b>18°</b><em>sonnigster</em></div>
+    <div class="wxd r-rk"><small>Mi 28</small><span class="i">🌥</span><b>?</b><em>unsicher</em></div>
+    <div class="wxd r-rk"><small>Do 29</small><span class="i">⛅</span><b>13°</b><em>viel Sonne</em></div>
+    <div class="wxd r-rk"><small>Fr 30</small><span class="i">🕳</span><b>egal</b><em>unter Tage</em></div>
+  </div>
+  <p class="note">Blau hinterlegt = Badetag auf dem schlechtesten Wetter. Bis 24.10. sind sich die Vorhersagen einig, danach ist es ein Trend. <b>Jeden Abend kurz das Wetter für morgen checken</b> und bei Bedarf tauschen (siehe Plan B).</p>
+</section>
+
+<!-- DAYS -->
+<section id="tage">
+  <div class="h2"><h2>Tag für Tag</h2><span class="n">13 Tage</span></div>
+
+  <!-- ANREISE -->
+  <div class="region r-an"><h3>Anreise</h3></div>
+
+  <article class="day r-an" id="d19" data-date="2026-10-19">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mo</span><span class="dn">19</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 1 · Los geht's</span><h4>Potsdam → Raum Hof</h4>
+        <div class="pills"><span class="pill">🚗 ~300 km · 3 h · A9</span><span class="pill">🕛 Abfahrt ~12 Uhr</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🛝</div><div><h5>Entspannt ankommen</h5><p>Nur fahren, unterwegs eine Spielplatz-Pause.</p></div></div>
+      <div class="alt"><b>Option:</b> Wenn ihr vor 15:30 Uhr in Saalfeld seid (280 km), schafft ihr die letzte Feengrotten-Führung um 16 Uhr schon heute. Dann ist Freitag, der 30., frei.</div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Hof%20Bayern">📍 Navi: Hof</a></div>
+    </div>
+    <details class="night" data-night="19" data-hint="Raum Hof"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 1</b> · <span class="sum-name">Raum Hof</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="z. B. Waldparkplatz am See"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="50.31, 11.92 oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-an" id="d20" data-date="2026-10-20">
+    <div class="dhead">
+      <div class="date"><span class="dow">Di</span><span class="dn">20</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 2 · Spielen</span><h4>Playmobil-FunPark</h4>
+        <div class="pills"><span class="pill">🚗 Hof → Zirndorf · 150 km</span><span class="pill sun">⛅ ~17°</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🏰</div><div><h5>Playmobil-FunPark Zirndorf <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Geöffnet 9–18 Uhr (bis 8.11.)</li><li><b>Nur mit Online-Ticket</b> · 24,90 €</li><li>Unter 3 Jahren frei, aber auch ein 0-€-Ticket online buchen</li><li>Bei Regen: HOB-Center (Indoor-Halle)</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Alles zum Anfassen und Selberspielen, perfekt für den Kleinen.</div><div class="kid"><b>🧒</b>Burgen, Piratenschiff und Klettern: den ganzen Tag beschäftigt.</div></div></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Playmobil-FunPark%20Zirndorf">📍 Navi</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.playmobil-funpark.de/en/oeffnungszeiten-preise">🎟 Tickets</a></div>
+    </div>
+    <details class="night" data-night="20" data-hint="Raum Nürnberg / Zirndorf"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 2</b> · <span class="sum-name">Raum Nürnberg / Zirndorf</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-an" id="d21" data-date="2026-10-21">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mi</span><span class="dn">21</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 3 · Badetag</span><h4>Therme Erding</h4>
+        <div class="pills"><span class="pill">🚗 200 km + 75 km Ri. Rosenheim</span><span class="pill wet">🌧 Regen · 12°</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🌊</div><div><h5>Therme Erding: Europas größte Rutschenwelt <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Therme Mo–Fr 10–23 Uhr</li><li><b>Rutschen (Galaxy) an Schultagen erst ab 13 Uhr</b>, bis 21 Uhr</li><li>Bis 3 Jahre frei · unter 12 nur mit Erwachsenem</li><li>Tipp: gegen 11 Uhr ankommen, erst Wellenbad, ab 13 Uhr rutschen</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Elefanten- und Regenbogenrutsche, Kinderbecken mit Süßwasser. Schwimmwindel nicht vergessen!</div><div class="kid"><b>🧒</b>Kinderrutschen ab 3, Family-Level und die Magic Eye (365 m, längste Röhrenrutsche der Welt).</div></div></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Therme%20Erding">📍 Navi</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.therme-erding.de/infos/preise-oeffnungszeiten-revisionen/">ℹ️ Zeiten & Preise</a></div>
+    </div>
+    <details class="night" data-night="21" data-hint="Raum Rosenheim"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 3</b> · <span class="sum-name">Raum Rosenheim</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <!-- SÜDTIROL -->
+  <div class="region r-st"><h3>Südtirol · 3 Nächte</h3></div>
+
+  <article class="day r-st" id="d22" data-date="2026-10-22">
+    <div class="dhead">
+      <div class="date"><span class="dow">Do</span><span class="dn">22</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 4 · Über die Alpen</span><h4>Trauttmansdorff</h4>
+        <div class="pills"><span class="pill">🚗 Rosenheim → Meran · 265 km · 3 h</span><span class="pill">☁️ 18° trocken</span></div></div>
+    </div>
+    <div class="body">
+      <div class="warn">🎫 <b>Vor der Grenze:</b> Vignette Österreich und Brenner-Maut (siehe Checkliste).</div>
+      <div class="act"><div class="ico">🌺</div><div><h5>Gärten von Schloss Trauttmansdorff <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Ankunft Meran ca. 12:30 Uhr</li><li>Geöffnet 9–18 Uhr, <b>letzter Einlass 16:30</b></li><li>Wärmster Südtirol-Tag, also perfekt für draußen</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Gut mit Kinderwagen machbar, viel zu gucken.</div><div class="kid"><b>🧒</b>Erlebnisstationen, große Voliere, Aussichtsplattform.</div></div></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=G%C3%A4rten%20von%20Schloss%20Trauttmansdorff%20Meran">📍 Navi</a></div>
+    </div>
+    <details class="night" data-night="22" data-hint="Raum Meran / Lana"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 4</b> · <span class="sum-name">Raum Meran / Lana</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><div class="warn" style="margin:0">Wildcampen ist in Südtirol verboten, also feste Plätze nehmen.</div><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-st" id="d23" data-date="2026-10-23">
+    <div class="dhead">
+      <div class="date"><span class="dow">Fr</span><span class="dn">23</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 5 · Berg-Action</span><h4>Meran 2000 & Alpin Bob</h4>
+        <div class="pills"><span class="pill">🚗 ~20 km</span><span class="pill sun">⛅ 16° · 5–9 h Sonne</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🎢</div><div><h5>Bergbahn Meran 2000 und Alpin Bob <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Bergbahn 9–17 Uhr</li><li>Alpin Bob (Achterbahn auf Schienen) täglich 10–16:30 Uhr, bis 8.11.</li><li>Keine Reservierung nötig</li><li>Sonnigster Tag, also beste Sicht oben</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Ob der Kleine im Bob mitfahren darf, hängt vom Alter ab. Sonst wechselt ihr euch ab.</div><div class="kid"><b>🧒</b>Bob-Fahren ist das Highlight!</div></div></div></div>
+      <div class="act"><div class="ico">🥾</div><div><h5>Nachmittags: Algunder Waalweg</h5><p>Flacher Weg am Hang mit Blick über Meran, mit Kinderwagen machbar.</p></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Bergbahn%20Meran%202000%20Naifweg%2037%20Meran">📍 Navi Talstation</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.meran2000.com/de/infos/fahrplan-aktuell-offen/">ℹ️ Live-Status</a></div>
+    </div>
+    <details class="night" data-night="23" data-hint="Raum Meran / Lana"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 5</b> · <span class="sum-name">Raum Meran / Lana</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a><button type="button" class="copyprev btn sm ghost" data-prev="22">= wie Vornacht</button></div></div>
+    </details>
+  </article>
+
+  <article class="day r-st" id="d24" data-date="2026-10-24">
+    <div class="dhead">
+      <div class="date"><span class="dow">Sa</span><span class="dn">24</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 6 · Badetag</span><h4>Therme Meran</h4>
+        <div class="pills"><span class="pill">🚗 ~10 km</span><span class="pill wet">☁️ 12° · grau</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">♨️</div><div><h5>Therme Meran <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>9–21 Uhr, letzter Einlass 19 Uhr</li><li>Bis 3 Jahre frei</li><li>Wochenende: Kind (4–13) 2 h 17 €, Erwachsene 2 h 21 €</li><li>Samstag ist viel los, also <b>vorher online reservieren</b></li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Kinderbecken in der Halle.</div><div class="kid"><b>🧒</b>Hauptbecken, Whirlpools. Kinder unter 14 nur mit Erwachsenem.</div></div></div></div>
+      <div class="act"><div class="ico">🚶</div><div><h5>Morgens, falls trocken</h5><p>Kurz auf den Waalweg oder die Meraner Kurpromenade an der Passer.</p></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Therme%20Meran">📍 Navi</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.termemerano.it/de/infos-preise/preise/">🎟 Tickets</a></div>
+    </div>
+    <details class="night" data-night="24" data-hint="Raum Meran / Lana"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 6</b> · <span class="sum-name">Raum Meran / Lana</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a><button type="button" class="copyprev btn sm ghost" data-prev="23">= wie Vornacht</button></div></div>
+    </details>
+  </article>
+
+  <!-- GARDA -->
+  <div class="region r-ga"><h3>Gardasee · 3 Nächte</h3></div>
+
+  <article class="day r-ga" id="d25" data-date="2026-10-25">
+    <div class="dhead">
+      <div class="date"><span class="dow">So</span><span class="dn">25</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 7 · Wechseltag</span><h4>Ritten oder Safari</h4>
+        <div class="pills"><span class="pill">🚗 ~130 km</span><span class="pill wet">🌦 10° · evtl. Regen</span></div></div>
+    </div>
+    <div class="body">
+      <div class="warn">⏰ <b>Zeitumstellung:</b> Uhr 1 Stunde zurück. Ab heute ist es ab ca. 17 Uhr dunkel.</div>
+      <div class="act"><div class="ico">🚡</div><div><h5>Plan A (trocken): Ritten bei Bozen <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Rittner Seilbahn ab Bozen, sonntags ab 7:02 alle 4 Min., 12 Min. Fahrt</li><li>Mit der historischen Rittner Bahn nach Klobenstein</li><li>30 Min. flach auf Weg 24 zu den Erdpyramiden Lengmoos, mit Kinderwagen machbar</li><li>Danach ~100 km an den Gardasee</li></ul></div></div>
+      <div class="act"><div class="ico">🦒</div><div><h5>Plan B (Regen): Parco Natura Viva <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li><b>Safari im eigenen Auto</b>, ab 9:30 Uhr, letzter Einlass 17 Uhr</li><li>Heute Halloween Night bis 22 Uhr (Abendticket ab 16 Uhr 9,90 €)</li><li>Park und Safari 30 € an der Kasse, online günstiger · 0–2 Jahre frei</li></ul></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rittner%20Seilbahn%20Bozen">📍 Rittner Seilbahn</a><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Parco%20Natura%20Viva%20Bussolengo">📍 Natura Viva</a></div>
+    </div>
+    <details class="night" data-night="25" data-hint="Gardasee (Tipp: Ostufer)"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 7</b> · <span class="sum-name">Gardasee (Tipp: Ostufer)</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><div class="alt" style="margin:0"><b>Tipp:</b> Garda, Lazise oder Bardolino liegen nah an Gardaland und Natura Viva. Das spart pro Ausflug 2 × 70 km ab Riva.</div><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-ga" id="d26" data-date="2026-10-26">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mo</span><span class="dn">26</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 8 · Freizeitpark</span><h4>Gardaland</h4>
+        <div class="pills"><span class="pill">🚗 ab Riva 70 km</span><span class="pill sun">⛅ 14–18° trocken</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🎃</div><div><h5>Gardaland Magic Halloween <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Mo–Fr 10–17 Uhr, unter der Woche ruhiger</li><li>Aktion „One More Day“: zweiter Eintritt gratis</li><li>Online-Tickets günstiger</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Viele Kleinkind-Fahrgeschäfte und Halloween-Deko zum Staunen.</div><div class="kid"><b>🧒</b>Achterbahnen und Halloween-Shows.</div></div></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Gardaland%20Castelnuovo%20del%20Garda">📍 Navi</a></div>
+    </div>
+    <details class="night" data-night="26" data-hint="Gardasee"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 8</b> · <span class="sum-name">Gardasee</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a><button type="button" class="copyprev btn sm ghost" data-prev="25">= wie Vornacht</button></div></div>
+    </details>
+  </article>
+
+  <article class="day r-ga" id="d27" data-date="2026-10-27">
+    <div class="dhead">
+      <div class="date"><span class="dow">Di</span><span class="dn">27</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 9 · Berg & Schiff</span><h4>Monte Baldo & Schifffahrt</h4>
+        <div class="pills"><span class="pill">🚗 ~40 km</span><span class="pill sun">☀️ 18° · sonnigster Tag</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🚠</div><div><h5>Seilbahn Monte Baldo ab Malcesine <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Geöffnet bis 1.11.</li><li><b>Letzte Bergfahrt 16:00</b>, letzte Talfahrt 16:45</li><li>Oben auf 1.760 m ist es kalt: Mützen und Jacken!</li></ul></div></div>
+      <div class="act"><div class="ico">⛴</div><div><h5>Schiff Malcesine ⇄ Limone <span class="ok">✓ GEPRÜFT</span></h5><p>Herbstfahrplan bis 1.11., weniger Fahrten. Schaut auf den Aushang am Anleger.</p></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Funivia%20Malcesine%20Monte%20Baldo">📍 Navi Seilbahn</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.navigazionelaghi.it/wp-content/uploads/2026/09/Orario-Battelli-Web-invernale-2026-2027.pdf">⛴ Fahrplan</a></div>
+    </div>
+    <details class="night" data-night="27" data-hint="Gardasee"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 9</b> · <span class="sum-name">Gardasee</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a><button type="button" class="copyprev btn sm ghost" data-prev="26">= wie Vornacht</button></div></div>
+    </details>
+  </article>
+
+  <!-- HEIMREISE -->
+  <div class="region r-rk"><h3>Heimreise</h3></div>
+
+  <article class="day r-rk" id="d28" data-date="2026-10-28">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mi</span><span class="dn">28</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 10 · Wasserfall & Zoo</span><h4>Varone → Innsbruck</h4>
+        <div class="pills"><span class="pill">🚗 Riva → Innsbruck · 255 km · 3 h</span><span class="pill">🌥 unsicher</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">💦</div><div><h5>Morgens: Cascata del Varone <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Oktober 9–17 Uhr, Tickets nur vor Ort</li><li>Wasserfall-Schlucht 3 km von Riva, auch bei Regen gut</li><li>Zur oberen Grotte gibt's Stufen: Trage statt Kinderwagen</li></ul></div></div>
+      <div class="act"><div class="ico">🦌</div><div><h5>Nachmittags: Alpenzoo Innsbruck <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Winterzeit 9–17 Uhr</li><li>Bär, Wolf, Luchs, Steinbock, dazu Spielplatz</li><li>Parkplatz kostenpflichtig, Alternative: Hungerburgbahn</li></ul></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Cascata%20del%20Varone">📍 Varone</a><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Alpenzoo%20Innsbruck">📍 Alpenzoo</a></div>
+    </div>
+    <details class="night" data-night="28" data-hint="Raum Innsbruck"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 10</b> · <span class="sum-name">Raum Innsbruck</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><div class="warn" style="margin:0">Wildcampen ist in Tirol verboten, also feste Plätze nehmen.</div><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-rk" id="d29" data-date="2026-10-29">
+    <div class="dhead">
+      <div class="date"><span class="dow">Do</span><span class="dn">29</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 11 · Tiere</span><h4>Tierpark Hellabrunn</h4>
+        <div class="pills"><span class="pill">🚗 Innsbruck → München 165 → Ingolstadt 80</span><span class="pill sun">⛅ 13° · viel Sonne</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🐘</div><div><h5>Tierpark Hellabrunn München <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>Ab 25.10. 9–17 Uhr</li><li>Erwachsene 23 €, Kinder 4–14 Jahre 9 €, große Familienkarte 51 €</li><li>Unter 4 Jahren frei</li></ul></div></div>
+      <div class="alt"><b>Bei Regen:</b> Deutsches Museum mit Kinderreich (Öffnungszeiten nicht geprüft).</div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Tierpark%20Hellabrunn">📍 Navi</a></div>
+    </div>
+    <details class="night" data-night="29" data-hint="Raum Ingolstadt"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 11</b> · <span class="sum-name">Raum Ingolstadt</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-rk" id="d30" data-date="2026-10-30">
+    <div class="dhead">
+      <div class="date"><span class="dow">Fr</span><span class="dn">30</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 12 · Unter Tage</span><h4>Feengrotten Saalfeld</h4>
+        <div class="pills"><span class="pill">🚗 Ingolstadt → Saalfeld · 285 km · 3 h</span><span class="pill">🕳 Wetter egal</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">✨</div><div><h5>Feengrotten und Feenweltchen <span class="ok">✓ GEPRÜFT</span></h5>
+        <ul><li>10–17 Uhr, <b>letzte Führung 16 Uhr</b></li><li>Familienkarte 2 Erwachsene + 2 Kinder 55 €</li><li>Online mit Code <b>FAMILIE</b> 10 % Rabatt</li></ul>
+        <div class="kids"><div class="kid"><b>👶</b>Die Führung ist erst ab 4 Jahren: Ein Elternteil geht mit dem Kleinen ins Feenweltchen. Trage mitnehmen, mit Kinderwagen kommt ihr nicht durch.</div><div class="kid"><b>🧒</b>Der andere geht mit dem Großen in die bunte Tropfsteingrotte.</div></div></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Feengrotten%20Saalfeld">📍 Navi</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://feengrotten.de/service/oeffnungszeiten/">🎟 Tickets</a></div>
+    </div>
+    <details class="night" data-night="30" data-hint="Raum Saalfeld"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 12</b> · <span class="sum-name">Raum Saalfeld</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="Name / Ort"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="Adresse oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <article class="day r-rk" id="d31" data-date="2026-10-31">
+    <div class="dhead">
+      <div class="date"><span class="dow">Sa</span><span class="dn">31</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 13 · Zuhause</span><h4>Saalfeld → Potsdam</h4>
+        <div class="pills"><span class="pill">🚗 280 km · 3 h</span></div></div>
+    </div>
+    <div class="body" style="padding-bottom:16px">
+      <div class="act"><div class="ico">🏠</div><div><h5>Heimkommen</h5><p>Unterwegs eine Pause, abends zu Hause.</p></div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Potsdam">📍 Navi: Potsdam</a></div>
+    </div>
+  </article>
+</section>
+
+<!-- NIGHTS OVERVIEW -->
+<section id="naechte">
+  <div class="h2"><h2>Übernachtungen</h2><span class="n" id="nightcount">0 / 12 fix</span></div>
+  <div class="progress"><i id="nightbar"></i></div>
+  <div class="nlist" id="nightlist"></div>
+  <p class="note">Tippe auf eine Nacht, um sie zu bearbeiten. Alles wird automatisch auf diesem Handy gespeichert. Als Adresse gehen auch Koordinaten (z. B. <i>46.67, 11.16</i>) oder ein kopierter Google-Maps-Link.</p>
+</section>
+
+<!-- PLAN B -->
+<section id="regen">
+  <div class="h2"><h2>Plan B</h2><span class="n">Wenn's regnet</span></div>
+  <div class="card">
+    <div class="swaplabel">Südtirol</div>
+    <div class="swap"><span>Meran 2000</span><span class="x">⇄</span><span class="in">Therme Meran</span></div>
+    <div class="swap"><span>Meran 2000</span><span class="x">⇄</span><span>Karersee (flacher Rundweg)</span></div>
+    <div class="swaplabel">Sonntag 25.</div>
+    <div class="swap"><span>Ritten</span><span class="x">⇄</span><span class="in">Natura Viva Safari im Auto</span></div>
+    <div class="swaplabel">Gardasee</div>
+    <div class="swap"><span>Monte Baldo</span><span class="x">⇄</span><span>Gardaland</span></div>
+    <div class="swap"><span>Regentag</span><span class="x">→</span><span class="in">Natura Viva Safari</span></div>
+    <div class="swap"><span>Regentag</span><span class="x">→</span><span>Parco Sigurtà, Halloween-Suchspiel (3–15 J.)</span></div>
+    <div class="swaplabel">München</div>
+    <div class="swap"><span>Hellabrunn</span><span class="x">⇄</span><span class="in">Deutsches Museum</span></div>
+    <p class="note" style="margin:12px 0 0">Parco Sigurtà ✓ ist täglich offen, ab 25.10. bis 16:30 Uhr. Movieland hat im Oktober nur am Wochenende offen und passt deshalb nicht. Ein Hallenbad am Nordufer des Gardasees habe ich nicht geprüft.</p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="check">
+  <div class="h2"><h2>Checkliste</h2><span class="n">Abhaken</span></div>
+  <div class="card checks">
+    <label><input type="checkbox" data-c="vignette"><span>Vignette Österreich <small>Online gekauft gilt sie erst ab dem 18. Tag. Also an einer Tankstelle vor der Grenze kaufen, dann gilt sie sofort.</small></span></label>
+    <label><input type="checkbox" data-c="brenner"><span>Brenner-Maut (A13) <small>An der Mautstelle Schönberg vor Ort bezahlen.</small></span></label>
+    <label><input type="checkbox" data-c="itmaut"><span>Italienische Autobahnmaut <small>Ticket ziehen, mit Karte bezahlen.</small></span></label>
+    <label><input type="checkbox" data-c="playmobil"><span>Playmobil-Tickets online <small>Pflicht, auch das 0-€-Ticket für den Kleinen.</small></span></label>
+    <label><input type="checkbox" data-c="therme"><span>Therme Meran für Sa 24. reservieren</span></label>
+    <label><input type="checkbox" data-c="gardaland"><span>Gardaland-Tickets online <small>Günstiger, „One More Day“ prüfen.</small></span></label>
+    <label><input type="checkbox" data-c="feen"><span>Feengrotten online mit Code FAMILIE</span></label>
+    <label><input type="checkbox" data-c="naturaviva"><span>Natura Viva nur bei Regen <small>Dann online buchen, ist günstiger.</small></span></label>
+    <label><input type="checkbox" data-c="tyres"><span>Winterreifen <small>Für die Alpenpässe sinnvoll.</small></span></label>
+    <label><input type="checkbox" data-c="warm"><span>Mützen, Handschuhe, warme Schlafsäcke <small>Monte Baldo oben auf 1.760 m, Nächte um 5 °C.</small></span></label>
+    <label><input type="checkbox" data-c="swim"><span>Badesachen und Schwimmwindeln</span></label>
+    <label><input type="checkbox" data-c="carrier"><span>Babytrage <small>Für Feenweltchen und Varone.</small></span></label>
+    <label><input type="checkbox" data-c="cash"><span>Etwas Bargeld in Euro</span></label>
+  </div>
+</section>
+
+<!-- BACKUP -->
+<section id="backup">
+  <div class="h2"><h2>Backup</h2><span class="n">Sicher ist sicher</span></div>
+  <div class="card">
+    <p style="margin:0 0 12px;font-size:14px">Deine Übernachtungen und Häkchen werden <b>automatisch auf diesem Handy</b> gespeichert. Damit nichts verloren geht, sichere sie ab und zu, z. B. per „In Notizen sichern“ oder als Nachricht an dich selbst.</p>
+    <div class="btnrow" style="padding:0">
+      <button class="btn" id="exp" type="button">⬆️ Backup teilen</button>
+      <button class="btn ghost" id="imp" type="button">⬇️ Backup laden</button>
+    </div>
+    <p class="note" style="margin:12px 0 0">Tipp fürs iPhone: In Safari „Teilen → Zum Home-Bildschirm“, dann öffnet sich der Plan wie eine App.</p>
+  </div>
+</section>
+
+<footer>Öffnungszeiten und Preise geprüft am 18.10.2026 · ✓ = für euren Tag bestätigt<br>Gute Reise! 🍂</footer>
+</main>
+
+<button class="btn" id="todayBtn" type="button">📍 Heute</button>
+<div id="toast"></div>
+
+<script>
+(function(){
+  var KEY='herbstreise26-v1';
+  var ok=true;
+  try{localStorage.setItem('_t','1');localStorage.removeItem('_t');}catch(e){ok=false;}
+  var state={nights:{},checks:{}};
+  if(ok){try{var s=JSON.parse(localStorage.getItem(KEY));if(s){state.nights=s.nights||{};state.checks=s.checks||{};}}catch(e){}}
+  if(!ok){document.getElementById('nostore').style.display='block';}
+  if(navigator.storage&&navigator.storage.persist){navigator.storage.persist().catch(function(){});}
+
+  function $(s,r){return (r||document).querySelector(s);}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+  var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show');},1400);}
+  function save(quiet){if(!ok)return;try{localStorage.setItem(KEY,JSON.stringify(state));if(!quiet)toast('Gespeichert ✓');}catch(e){toast('Speichern fehlgeschlagen');}renderOverview();}
+  var ds;function debSave(){clearTimeout(ds);ds=setTimeout(function(){save();},600);}
+
+  function mapsLink(n){var a=(n.addr||'').trim();if(/^https?:\/\//i.test(a))return a;var q=a||(n.name||'').trim();return q?'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q):null;}
+
+  function setStatus(el,s){$$('.st button',el).forEach(function(b){b.classList.toggle('on',b.dataset.s===s);});var lab=$('.sum-status',el);lab.textContent=s==='fix'?'fix ✓':s;lab.dataset.s=s;}
+  function updateNightUI(el){var n=state.nights[el.dataset.night]||{};var l=mapsLink(n);var a=$('.nmaps',el);if(l){a.href=l;a.hidden=false;}else{a.hidden=true;}$('.sum-name',el).textContent=n.name?n.name:el.dataset.hint;}
+  function fillNight(el){var n=state.nights[el.dataset.night]||{};$$('[data-f]',el).forEach(function(i){i.value=n[i.dataset.f]||'';});setStatus(el,n.status||'offen');updateNightUI(el);}
+  function ensure(id){if(!state.nights[id])state.nights[id]={};return state.nights[id];}
+
+  var nights=$$('.night');
+  nights.forEach(function(el){
+    var id=el.dataset.night;
+    fillNight(el);
+    $$('[data-f]',el).forEach(function(i){i.addEventListener('input',function(){ensure(id)[i.dataset.f]=i.value;updateNightUI(el);debSave();});});
+    $$('.st button',el).forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();ensure(id).status=b.dataset.s;setStatus(el,b.dataset.s);save();});});
+    var cp=$('.copyprev',el);
+    if(cp){cp.addEventListener('click',function(e){e.preventDefault();var p=state.nights[cp.dataset.prev];if(!p||!(p.name||p.addr)){toast('Vornacht ist noch leer');return;}state.nights[id]={name:p.name||'',addr:p.addr||'',note:p.note||'',status:p.status||'offen'};fillNight(el);save();});}
+  });
+
+  $$('input[data-c]').forEach(function(c){c.checked=!!state.checks[c.dataset.c];c.addEventListener('change',function(){state.checks[c.dataset.c]=c.checked;save();});});
+
+  var days=['Mo','Di','Mi','Do','Fr','Sa'];
+  function renderOverview(){
+    var list=$('#nightlist');list.innerHTML='';var fix=0;
+    nights.forEach(function(el,idx){
+      var id=el.dataset.night;var n=state.nights[id]||{};var st=n.status||'offen';if(st==='fix')fix++;
+      var day=el.closest('.day');var rc=getComputedStyle(day).getPropertyValue('--rc');
+      var dow=$('.dow',day).textContent;
+      var a=document.createElement('a');a.className='nl';a.href='#'+day.id;a.style.borderLeftColor=rc;
+      a.innerHTML='<span class="dt">'+dow+' '+id+'.<small>Nacht '+(idx+1)+'</small></span><span class="nm'+(n.name?'':' empty')+'"></span><span class="sum-status" data-s="'+st+'">'+(st==='fix'?'fix ✓':st)+'</span>';
+      a.querySelector('.nm').textContent=n.name||el.dataset.hint;
+      a.addEventListener('click',function(){el.open=true;});
+      list.appendChild(a);
+    });
+    $('#nightcount').textContent=fix+' / 12 fix';
+    $('#nightbar').style.width=(fix/12*100)+'%';
+  }
+  renderOverview();
+
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  var today=iso(new Date());var card=$('.day[data-date="'+today+'"]');
+  if(card){card.classList.add('today');var chip=$('.nav .days a[data-d="'+today+'"]');if(chip){chip.classList.add('today');chip.scrollIntoView({inline:'center',block:'nearest'});}
+    var tb=$('#todayBtn');tb.style.display='inline-flex';tb.addEventListener('click',function(){card.scrollIntoView({behavior:'smooth',block:'start'});});}
+
+  $('#exp').addEventListener('click',function(){
+    var txt=JSON.stringify(state);
+    if(navigator.share){navigator.share({title:'Herbstreise Backup',text:txt}).catch(function(){});return;}
+    if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('Backup kopiert ✓');},function(){prompt('Backup kopieren:',txt);});}
+    else{prompt('Backup kopieren:',txt);}
+  });
+  $('#imp').addEventListener('click',function(){
+    var t=prompt('Backup-Text hier einfügen:');if(!t)return;
+    try{var s=JSON.parse(t);state={nights:s.nights||{},checks:s.checks||{}};save(true);nights.forEach(fillNight);$$('input[data-c]').forEach(function(c){c.checked=!!state.checks[c.dataset.c];});toast('Backup geladen ✓');}
+    catch(e){alert('Das sieht nicht wie ein Backup aus.');}
+  });
+})();
+</script>
+</body>
+</html>
