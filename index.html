@@ -171,6 +171,47 @@ section{padding:26px 0 6px}
 .checks input{flex:none;width:22px;height:22px;accent-color:#2f6b3d;margin-top:1px}
 .checks input:checked + span{color:var(--muted);text-decoration:line-through}
 .checks small{display:block;color:var(--muted);font-size:12.5px;text-decoration:none}
+/* STROM */
+.battery-hero{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.batt{flex:none;width:48px;height:80px;border:3px solid var(--ink);border-radius:10px;position:relative}
+.batt::before{content:"";position:absolute;top:-8px;left:14px;width:14px;height:5px;background:var(--ink);border-radius:3px 3px 0 0}
+.batt i{position:absolute;left:3px;right:3px;bottom:3px;border-radius:6px;background:linear-gradient(#6fbf7e,#2f6b3d);height:calc(var(--lvl,100) * 0.9%);transition:height .4s}
+.battery-hero b{display:block;font:900 34px/1 var(--display)}
+.battery-hero span{font-size:13px;color:var(--muted)}
+.fits{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.fit{background:#f3eadb;border-radius:14px;padding:12px 8px;text-align:center}
+.fit b{display:block;font:900 24px/1.1 var(--display)}
+.fit span{font-size:12px;color:var(--muted)}
+.ports .port{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-top:1px dashed var(--line)}
+.ports .port:first-child{border-top:0}
+.pico{font-size:21px;width:40px;height:40px;border-radius:12px;background:#f3eadb;display:grid;place-items:center}
+.port h5{margin:0 0 4px;font:800 15px/1.2 var(--body)}
+.port p{margin:4px 0 0;font-size:12.5px;color:#4a554e}
+.plug{display:inline-block;font:800 10.5px/1 var(--body);padding:5px 7px;border-radius:7px;color:#fff;white-space:nowrap;margin:0 4px 2px 0}
+.plug.usbc{background:#2a6b8b}.plug.usba{background:#3d8a7a}.plug.v12{background:#c98f22}.plug.ac{background:#c0532a}
+.pct{text-align:right;font:800 15px/1.1 var(--display);white-space:nowrap}
+.pct small{display:block;font:600 11px var(--body);color:var(--muted)}
+.portkey{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;font-size:12px;color:#4a554e}
+.rules{margin:0;padding-left:20px;font-size:14px}
+.rules li{margin:0 0 9px}
+.drive{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.drive span{font:700 12px/1.1 var(--body);padding:7px 9px;border-radius:10px;background:#e0efe2;color:#2f6b3d;text-align:center}
+.drive span small{display:block;font-weight:600;font-size:10px;opacity:.8}
+.drive span.stand{background:#fbefd9;color:#7a5410}
+.calc label{display:block;font:700 13px var(--body);margin:14px 0 4px}
+.calc label .val{float:right;font-weight:800;color:var(--rust)}
+.calc input[type=range]{width:100%;accent-color:var(--rust);margin:0}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;font:700 13px var(--body);padding:9px 4px;border-radius:10px;border:1.5px solid var(--line);background:#fffaf1;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.stack{display:flex;height:18px;border-radius:99px;overflow:hidden;background:#efe5d4;margin:12px 0 6px}
+.stack i{display:block;height:100%}
+.skey{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:#4a554e}
+.skey b{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.result{padding:12px 14px;border-radius:12px;margin-top:12px;font-size:14px}
+.result.good{background:#e0efe2}.result.bad{background:#fbefd9}
+.result big{display:block;font:900 22px/1.15 var(--display);margin-bottom:2px}
+
 footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:12px;color:var(--muted)}
 
 #toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;font:700 13px var(--body);padding:10px 16px;border-radius:99px;transition:.25s;z-index:50;pointer-events:none}
@@ -213,7 +254,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
 
 <nav class="nav">
   <div class="row">
-    <a href="#route">🗺 Route</a><a href="#wetter">⛅ Wetter</a><a href="#tage">📅 Tage</a><a href="#naechte">🌙 Nächte</a><a href="#regen">☔ Plan B</a><a href="#check">✅ Checkliste</a><a href="#backup">💾 Backup</a>
+    <a href="#route">🗺 Route</a><a href="#wetter">⛅ Wetter</a><a href="#tage">📅 Tage</a><a href="#naechte">🌙 Nächte</a><a href="#regen">☔ Plan B</a><a href="#check">✅ Checkliste</a><a href="#strom">🔋 Strom</a><a href="#backup">💾 Backup</a>
   </div>
   <div class="row days">
     <a href="#d19" class="r-an" data-d="2026-10-19"><small>MO</small>19</a>
@@ -625,6 +666,85 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     <label><input type="checkbox" data-c="swim"><span>Badesachen und Schwimmwindeln</span></label>
     <label><input type="checkbox" data-c="carrier"><span>Babytrage <small>Für Feenweltchen und Varone.</small></span></label>
     <label><input type="checkbox" data-c="cash"><span>Etwas Bargeld in Euro</span></label>
+    <label><input type="checkbox" data-c="ecofull"><span>EcoFlow vor Abfahrt voll laden <small>An der Steckdose zu Hause in ca. 1 Stunde voll.</small></span></label>
+    <label><input type="checkbox" data-c="ecocar"><span>Autoladekabel der EcoFlow einpacken <small>Zigarettenanzünder auf XT60.</small></span></label>
+    <label><input type="checkbox" data-c="maccable"><span>USB-C-Kabel fürs MacBook <small>Direkt an die EcoFlow, ohne Apple-Netzteil.</small></span></label>
+    <label><input type="checkbox" data-c="thermos"><span>Thermoskanne <small>Einmal Wasser kochen, für den ganzen Tag.</small></span></label>
+  </div>
+</section>
+
+<!-- STROM -->
+<section id="strom">
+  <div class="h2"><h2>Strom</h2><span class="n">EcoFlow DELTA 3 Classic</span></div>
+
+  <div class="card">
+    <div class="battery-hero"><div class="batt"><i></i></div><div><b>1.024 Wh</b><span>LiFePO₄-Akku · Steckdosen zusammen max. 1.800 W</span></div></div>
+    <div class="note" style="margin-bottom:8px"><b style="color:var(--ink)">Was passt in eine volle Ladung?</b> (ca., inkl. Verluste)</div>
+    <div class="fits">
+      <div class="fit"><b>~45×</b><span>📱 iPhone voll</span></div>
+      <div class="fit"><b>~15×</b><span>💻 MacBook Air voll</span></div>
+      <div class="fit"><b>~2 h</b><span>🔥 Heizlüfter 400 W</span></div>
+      <div class="fit"><b>~35 Min.</b><span>🍳 Herdplatte bei 1.500 W</span></div>
+    </div>
+  </div>
+
+  <div class="card ports" style="margin-top:12px">
+    <div class="note" style="margin-bottom:4px"><b style="color:var(--ink)">Welcher Anschluss wofür</b></div>
+    <div class="port"><div class="pico">💻</div><div><h5>MacBook Air</h5><span class="plug usbc">USB-C 100 W</span><p>Direkt mit USB-C-Kabel, <b>nicht</b> übers Apple-Netzteil in der Steckdose. Das spart ca. 15 %.</p></div><div class="pct">~6 %<small>pro Ladung</small></div></div>
+    <div class="port"><div class="pico">📱</div><div><h5>iPhone</h5><span class="plug usbc">USB-C 30 W</span><span class="plug usba">USB-A</span><p>Der kleine USB-C-Anschluss (30 W) reicht fürs iPhone, dann bleibt der 100-W-Anschluss fürs MacBook frei.</p></div><div class="pct">~2 %<small>pro Ladung</small></div></div>
+    <div class="port"><div class="pico">🎧</div><div><h5>AirPods</h5><span class="plug usba">USB-A</span><p>Braucht fast nichts.</p></div><div class="pct">&lt;1 %<small>pro Ladung</small></div></div>
+    <div class="port"><div class="pico">🔋</div><div><h5>2 Powerbanks</h5><span class="plug usba">USB-A 18 W</span><span class="plug usbc">USB-C, wenn frei</span><p>Beim Fahren laden, wenn ein USB-C frei ist, geht es schneller. Nur für unterwegs nutzen (Park, Wanderung). Handy lieber direkt an der EcoFlow laden, jeder Umweg über die Powerbank kostet ca. 20–30 %.</p></div><div class="pct">~4–5 %<small>pro 10.000 mAh</small></div></div>
+    <div class="port"><div class="pico">🧊</div><div><h5>Kühlbox</h5><span class="plug v12">12-V-Autobuchse</span><p><b>Nie</b> den 230-V-Stecker der Box an die EcoFlow-Steckdose, das verschwendet Strom. Kompressor-Box im Oktober: ca. 100–200 Wh pro Tag. Thermoelektrische Box (ohne Kompressor): ca. 1.000 Wh pro Tag, also den ganzen Akku!</p></div><div class="pct">15–20 %<small>pro Tag (Kompr.)</small></div></div>
+    <div class="port"><div class="pico">🔥</div><div><h5>Heizlüfter 400 W</h5><span class="plug ac">230-V-Steckdose</span><p>15 Min. ≈ 115 Wh. Nur kurz zum Vorwärmen, <b>nie im Schlaf</b> laufen lassen, Abstand zu Zeltstoff und Schlafsäcken.</p></div><div class="pct">~11 %<small>pro 15 Min.</small></div></div>
+    <div class="port"><div class="pico">🍳</div><div><h5>Herdplatte Niklas</h5><span class="plug ac">230-V-Steckdose</span><p>Die Leistung steht auf dem Typenschild unten an der Platte, meist 1.000–1.500 W. 1 Liter Wasser kochen ≈ 170 Wh. Nur draußen oder unter dem Vordach benutzen.</p></div><div class="pct">~17 %<small>pro Liter Wasser</small></div></div>
+    <div class="portkey">
+      <span><span class="plug ac">AC</span> 230 V, zusammen 1.800 W</span>
+      <span><span class="plug usbc">USB-C</span> 1× 100 W + 1× 30 W</span>
+      <span><span class="plug usba">USB-A</span> 18 W</span>
+      <span><span class="plug v12">12 V</span> Autobuchse</span>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:12px">⚠️ <b>Heizlüfter und Herdplatte nie gleichzeitig!</b> 400 W + 1.500 W sind mehr als die 1.800 W, dann schaltet die EcoFlow ab. Falls die Platte mehr als 1.800 W hat: in der App <b>X-Boost</b> einschalten (geht bis 2.400 W). Dann läuft sie, aber gedrosselt und langsamer.</div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="note" style="margin-bottom:10px"><b style="color:var(--ink)">So verlierst du am wenigsten Strom</b></div>
+    <ol class="rules">
+      <li><b>USB und 12 V vor 230 V.</b> Alles, was per USB-C, USB-A oder Autobuchse geht, direkt dort laden. Über die Steckdose gehen jedes Mal ca. 10–15 % verloren.</li>
+      <li><b>AC-Taste nur an, wenn Heizlüfter oder Platte laufen.</b> Der Wechselrichter zieht auch ohne Gerät Strom, über Nacht merkt man das.</li>
+      <li><b>Heizlüfter in kurzen Stößen:</b> 10–15 Min. das Zelt vorwärmen, abends vorm Schlafen und morgens beim Anziehen. Danach halten die Schlafsäcke warm.</li>
+      <li><b>Wasser einmal kochen, Thermoskanne füllen.</b> Reicht für Tee, Kaffee und Babyfläschchen den ganzen Tag. Deckel auf den Topf, nur so viel Wasser wie nötig.</li>
+      <li><b>Kühlbox nachts aus oder auf Eco.</b> Bei 5–10 °C nachts ist draußen Kühlschrank-Wetter. Box in den Schatten stellen und vorgekühlte Sachen einräumen.</li>
+      <li><b>Beim Fahren laden.</b> Das Autoladekabel in die 12-V-Buchse, nur bei laufendem Motor.</li>
+      <li><b>Jede 230-V-Steckdose nutzen</b> (Gasthof, Freunde, Stellplatz mit Strom): Mit 1.400 W ist die EcoFlow in ca. 1 Stunde wieder voll.</li>
+    </ol>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="note"><b style="color:var(--ink)">Laden beim Fahren:</b> ca. 95 W, also <b>3 h Fahrt ≈ 285 Wh ≈ 28 %</b>. Grün = Fahrtag (lädt), gelb = Standtag (sparen).</div>
+    <div class="drive">
+      <span>Mo 19<small>3 h</small></span><span>Di 20<small>1,5 h</small></span><span>Mi 21<small>3 h</small></span><span>Do 22<small>3 h</small></span>
+      <span class="stand">Fr 23<small>kaum</small></span><span class="stand">Sa 24<small>kaum</small></span><span>So 25<small>1,5 h</small></span><span>Mo 26<small>1,5 h</small></span>
+      <span class="stand">Di 27<small>kaum</small></span><span>Mi 28<small>3 h</small></span><span>Do 29<small>2,5 h</small></span><span>Fr 30<small>3 h</small></span>
+    </div>
+    <p class="note" style="margin:10px 0 0">Ehrlich gesagt: Handys, MacBook und Kühlbox schafft das Laden beim Fahren locker. <b>Heizlüfter und Herdplatte jeden Tag schafft es nicht.</b> Dafür braucht ihr alle 2–3 Tage eine Stunde an einer 230-V-Steckdose, am wichtigsten an den Standtagen in Südtirol (Fr 23./Sa 24.). Ein kleiner Gaskocher für Kartuschen würde den Akku am meisten entlasten.</p>
+  </div>
+
+  <div class="card calc" style="margin-top:12px">
+    <div class="note"><b style="color:var(--ink)">Akku-Rechner</b>: stell ein, was ihr pro Tag braucht.</div>
+    <label>🔥 Heizlüfter <span class="val" id="v-heat"></span><input type="range" id="c-heat" min="0" max="120" step="5" value="20"></label>
+    <label>🍳 Herdplatte <span class="val" id="v-plate"></span><input type="range" id="c-plate" min="0" max="60" step="5" value="10"></label>
+    <label>Leistung der Herdplatte</label>
+    <div class="seg" id="c-platew"><button type="button" data-v="1000">1.000 W</button><button type="button" data-v="1500" class="on">1.500 W</button><button type="button" data-v="2000">2.000 W</button></div>
+    <label>🧊 Kühlbox</label>
+    <div class="seg" id="c-cool"><button type="button" data-v="150" class="on">Kompressor</button><button type="button" data-v="1000">Thermo&shy;elektrisch</button><button type="button" data-v="0">aus</button></div>
+    <label>💻 MacBook-Ladungen <span class="val" id="v-mac"></span><input type="range" id="c-mac" min="0" max="2" step="0.5" value="1"></label>
+    <label>🔋 Powerbank-Ladungen <span class="val" id="v-pb"></span><input type="range" id="c-pb" min="0" max="2" step="1" value="1"></label>
+    <label>🚗 Fahrzeit mit Laden <span class="val" id="v-drive"></span><input type="range" id="c-drive" min="0" max="4" step="0.5" value="2"></label>
+    <div class="stack" id="c-stack"></div>
+    <div class="skey"><span><b style="background:#c0532a"></b>Heizlüfter</span><span><b style="background:#c98f22"></b>Herdplatte</span><span><b style="background:#2a6b8b"></b>Kühlbox</span><span><b style="background:#24493a"></b>Geräte</span></div>
+    <div class="result" id="c-result"></div>
+    <p class="note" style="margin:10px 0 0">📱 iPhone und AirPods sind mit ca. 30 Wh pro Tag fest eingerechnet. Für 230-V-Geräte rechne ich 12 % Wechselrichter-Verlust dazu.</p>
   </div>
 </section>
 
@@ -653,7 +773,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
   var ok=true;
   try{localStorage.setItem('_t','1');localStorage.removeItem('_t');}catch(e){ok=false;}
   var state={nights:{},checks:{}};
-  if(ok){try{var s=JSON.parse(localStorage.getItem(KEY));if(s){state.nights=s.nights||{};state.checks=s.checks||{};}}catch(e){}}
+  if(ok){try{var s=JSON.parse(localStorage.getItem(KEY));if(s){state.nights=s.nights||{};state.checks=s.checks||{};if(s.calc)state.calc=s.calc;}}catch(e){}}
   if(!ok){document.getElementById('nostore').style.display='block';}
   if(navigator.storage&&navigator.storage.persist){navigator.storage.persist().catch(function(){});}
 
@@ -716,6 +836,33 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     try{var s=JSON.parse(t);state={nights:s.nights||{},checks:s.checks||{}};save(true);nights.forEach(fillNight);$$('input[data-c]').forEach(function(c){c.checked=!!state.checks[c.dataset.c];});toast('Backup geladen ✓');}
     catch(e){alert('Das sieht nicht wie ein Backup aus.');}
   });
+
+  var CAP=1024, INV=1/0.88;
+  var calc=Object.assign({heat:20,plate:10,platew:1500,cool:150,mac:1,pb:1,drive:2},state.calc||{});
+  var rng={heat:'#c-heat',plate:'#c-plate',mac:'#c-mac',pb:'#c-pb',drive:'#c-drive'};
+  Object.keys(rng).forEach(function(k){var el=$(rng[k]);el.value=calc[k];el.addEventListener('input',function(){calc[k]=parseFloat(el.value);runCalc(true);});});
+  [['#c-platew','platew'],['#c-cool','cool']].forEach(function(p){
+    var box=$(p[0]);
+    $$('button',box).forEach(function(b){b.classList.toggle('on',parseFloat(b.dataset.v)===calc[p[1]]);
+      b.addEventListener('click',function(){$$('button',box).forEach(function(x){x.classList.remove('on');});b.classList.add('on');calc[p[1]]=parseFloat(b.dataset.v);runCalc(true);});});
+  });
+  function fmtH(m){return m>=60?(Math.floor(m/60)+' h'+(m%60?' '+(m%60)+' Min.':'')):m+' Min.';}
+  var cs;
+  function runCalc(persist){
+    $('#v-heat').textContent=fmtH(calc.heat);$('#v-plate').textContent=fmtH(calc.plate);
+    $('#v-mac').textContent=String(calc.mac).replace('.',',')+'×';$('#v-pb').textContent=calc.pb+'×';$('#v-drive').textContent=String(calc.drive).replace('.',',')+' h';
+    var heat=400*calc.heat/60*INV, plate=calc.platew*calc.plate/60*INV, cool=calc.cool, dev=30+60*calc.mac+45*calc.pb;
+    var use=heat+plate+cool+dev, charge=95*calc.drive, net=charge-use;
+    var segs=[[heat,'#c0532a'],[plate,'#c98f22'],[cool,'#2a6b8b'],[dev,'#24493a']];
+    var scale=Math.max(use,CAP);
+    $('#c-stack').innerHTML=segs.map(function(s){return '<i style="width:'+(s[0]/scale*100)+'%;background:'+s[1]+'"></i>';}).join('');
+    var r=$('#c-result'), u=Math.round(use), c=Math.round(charge);
+    if(net>=0){r.className='result good';r.innerHTML='<big>Akku bleibt voll 👍</big>Verbrauch ca. '+u+' Wh pro Tag, Laden beim Fahren ca. '+c+' Wh.';}
+    else{var d=CAP/(-net);r.className='result bad';
+      r.innerHTML='<big>Reicht ca. '+(d>=10?Math.round(d):d.toFixed(1).replace('.',','))+' Tage</big>Verbrauch ca. '+u+' Wh, Laden ca. '+c+' Wh pro Tag, also '+Math.round(-net)+' Wh ('+Math.round(-net/CAP*100)+' %) weniger. Danach 1 h an eine 230-V-Steckdose.';}
+    if(persist){state.calc=calc;clearTimeout(cs);cs=setTimeout(function(){save(true);},400);}
+  }
+  runCalc(false);
 })();
 </script>
 </body>
