@@ -694,7 +694,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     <div class="port"><div class="pico">📱</div><div><h5>iPhone</h5><span class="plug usbc">USB-C 30 W</span><span class="plug usba">USB-A</span><p>Der kleine USB-C-Anschluss (30 W) reicht fürs iPhone, dann bleibt der 100-W-Anschluss fürs MacBook frei.</p></div><div class="pct">~2 %<small>pro Ladung</small></div></div>
     <div class="port"><div class="pico">🎧</div><div><h5>AirPods</h5><span class="plug usba">USB-A</span><p>Braucht fast nichts.</p></div><div class="pct">&lt;1 %<small>pro Ladung</small></div></div>
     <div class="port"><div class="pico">🔋</div><div><h5>2 Powerbanks</h5><span class="plug usba">USB-A 18 W</span><span class="plug usbc">USB-C, wenn frei</span><p>Beim Fahren laden, wenn ein USB-C frei ist, geht es schneller. Nur für unterwegs nutzen (Park, Wanderung). Handy lieber direkt an der EcoFlow laden, jeder Umweg über die Powerbank kostet ca. 20–30 %.</p></div><div class="pct">~4–5 %<small>pro 10.000 mAh</small></div></div>
-    <div class="port"><div class="pico">🧊</div><div><h5>Kühlbox</h5><span class="plug v12">12-V-Autobuchse</span><p><b>Nie</b> den 230-V-Stecker der Box an die EcoFlow-Steckdose, das verschwendet Strom. Kompressor-Box im Oktober: ca. 100–200 Wh pro Tag. Thermoelektrische Box (ohne Kompressor): ca. 1.000 Wh pro Tag, also den ganzen Akku!</p></div><div class="pct">15–20 %<small>pro Tag (Kompr.)</small></div></div>
+    <div class="port"><div class="pico">🧊</div><div><h5>Kühlbox</h5><span class="plug v12">12-V-Autobuchse</span><p>Eure Box ist <b>thermoelektrisch</b> und zieht dauernd ca. 45 W, egal wie kalt es ist. 24 Stunden am Stück wären ca. 1.000 Wh, also der ganze Akku. Darum <b>nur beim Fahren laufen lassen</b>: am besten direkt an einer zweiten 12-V-Buchse im Auto (oft im Kofferraum), sonst an der 12-V-Buchse der EcoFlow. <b>Nachts und an Standtagen aus</b>, Deckel zu. Bei 0–10 °C draußen bleibt sie so lange kalt. <b>Nie</b> den 230-V-Stecker der Box an die EcoFlow-Steckdose.</p></div><div class="pct">ca. 4 %<small>pro Fahrstunde</small></div></div>
     <div class="port"><div class="pico">🔥</div><div><h5>Heizlüfter 400 W</h5><span class="plug ac">230-V-Steckdose</span><p>15 Min. ≈ 115 Wh. Nur kurz zum Vorwärmen, <b>nie im Schlaf</b> laufen lassen, Abstand zu Zeltstoff und Schlafsäcken.</p></div><div class="pct">~11 %<small>pro 15 Min.</small></div></div>
     <div class="port"><div class="pico">🍳</div><div><h5>Herdplatte Niklas</h5><span class="plug ac">230-V-Steckdose</span><p>Die Leistung steht auf dem Typenschild unten an der Platte, meist 1.000–1.500 W. 1 Liter Wasser kochen ≈ 170 Wh. Nur draußen oder unter dem Vordach benutzen.</p></div><div class="pct">~17 %<small>pro Liter Wasser</small></div></div>
     <div class="portkey">
@@ -714,8 +714,8 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
       <li><b>AC-Taste nur an, wenn Heizlüfter oder Platte laufen.</b> Der Wechselrichter zieht auch ohne Gerät Strom, über Nacht merkt man das.</li>
       <li><b>Heizlüfter in kurzen Stößen:</b> 10–15 Min. das Zelt vorwärmen, abends vorm Schlafen und morgens beim Anziehen. Danach halten die Schlafsäcke warm.</li>
       <li><b>Wasser einmal kochen, Thermoskanne füllen.</b> Reicht für Tee, Kaffee und Babyfläschchen den ganzen Tag. Deckel auf den Topf, nur so viel Wasser wie nötig.</li>
-      <li><b>Kühlbox nachts aus oder auf Eco.</b> Bei 5–10 °C nachts ist draußen Kühlschrank-Wetter. Box in den Schatten stellen und vorgekühlte Sachen einräumen.</li>
-      <li><b>Beim Fahren laden.</b> Das Autoladekabel in die 12-V-Buchse, nur bei laufendem Motor.</li>
+      <li><b>Kühlbox nur beim Fahren.</b> Nachts aus, Deckel zu: bei 0–10 °C draußen ist sowieso Kühlschrank-Wetter. Zu Hause an 230 V vorkühlen, gefrorene Wasserflaschen als Kühlakkus mitnehmen und nur Vorgekühltes einräumen.</li>
+      <li><b>Beim Fahren laden.</b> Autoladekabel von der Zigarettenanzünder-Buchse in den Autolade-Eingang (XT60) der EcoFlow. Das bringt ca. 95 W, also ca. 9 % pro Stunde. Nur bei laufendem Motor, sonst ist morgens die Autobatterie leer. Läuft die Kühlbox dabei an der EcoFlow mit, bleiben netto ca. 50 W übrig.</li>
       <li><b>Jede 230-V-Steckdose nutzen</b> (Gasthof, Freunde, Stellplatz mit Strom): Mit 1.400 W ist die EcoFlow in ca. 1 Stunde wieder voll.</li>
     </ol>
   </div>
@@ -737,7 +737,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     <label>Leistung der Herdplatte</label>
     <div class="seg" id="c-platew"><button type="button" data-v="1000">1.000 W</button><button type="button" data-v="1500" class="on">1.500 W</button><button type="button" data-v="2000">2.000 W</button></div>
     <label>🧊 Kühlbox</label>
-    <div class="seg" id="c-cool"><button type="button" data-v="150" class="on">Kompressor</button><button type="button" data-v="1000">Thermo&shy;elektrisch</button><button type="button" data-v="0">aus</button></div>
+    <div class="seg" id="c-cool"><button type="button" data-v="-1" class="on">nur beim Fahren</button><button type="button" data-v="1000">rund um die Uhr</button><button type="button" data-v="0">aus / Auto-Buchse</button></div>
     <label>💻 MacBook-Ladungen <span class="val" id="v-mac"></span><input type="range" id="c-mac" min="0" max="2" step="0.5" value="1"></label>
     <label>🔋 Powerbank-Ladungen <span class="val" id="v-pb"></span><input type="range" id="c-pb" min="0" max="2" step="1" value="1"></label>
     <label>🚗 Fahrzeit mit Laden <span class="val" id="v-drive"></span><input type="range" id="c-drive" min="0" max="4" step="0.5" value="2"></label>
@@ -838,7 +838,8 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
   });
 
   var CAP=1024, INV=1/0.88;
-  var calc=Object.assign({heat:20,plate:10,platew:1500,cool:150,mac:1,pb:1,drive:2},state.calc||{});
+  var calc=Object.assign({heat:20,plate:10,platew:1500,cool:-1,mac:1,pb:1,drive:2},state.calc||{});
+  if(calc.cool===150)calc.cool=-1;
   var rng={heat:'#c-heat',plate:'#c-plate',mac:'#c-mac',pb:'#c-pb',drive:'#c-drive'};
   Object.keys(rng).forEach(function(k){var el=$(rng[k]);el.value=calc[k];el.addEventListener('input',function(){calc[k]=parseFloat(el.value);runCalc(true);});});
   [['#c-platew','platew'],['#c-cool','cool']].forEach(function(p){
@@ -851,7 +852,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
   function runCalc(persist){
     $('#v-heat').textContent=fmtH(calc.heat);$('#v-plate').textContent=fmtH(calc.plate);
     $('#v-mac').textContent=String(calc.mac).replace('.',',')+'×';$('#v-pb').textContent=calc.pb+'×';$('#v-drive').textContent=String(calc.drive).replace('.',',')+' h';
-    var heat=400*calc.heat/60*INV, plate=calc.platew*calc.plate/60*INV, cool=calc.cool, dev=30+60*calc.mac+45*calc.pb;
+    var heat=400*calc.heat/60*INV, plate=calc.platew*calc.plate/60*INV, cool=calc.cool<0?45*calc.drive:calc.cool, dev=30+60*calc.mac+45*calc.pb;
     var use=heat+plate+cool+dev, charge=95*calc.drive, net=charge-use;
     var segs=[[heat,'#c0532a'],[plate,'#c98f22'],[cool,'#2a6b8b'],[dev,'#24493a']];
     var scale=Math.max(use,CAP);
