@@ -670,6 +670,8 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     <label><input type="checkbox" data-c="ecocar"><span>Autoladekabel der EcoFlow einpacken <small>Zigarettenanzünder auf XT60.</small></span></label>
     <label><input type="checkbox" data-c="maccable"><span>USB-C-Kabel fürs MacBook <small>Direkt an die EcoFlow, ohne Apple-Netzteil.</small></span></label>
     <label><input type="checkbox" data-c="thermos"><span>Thermoskanne <small>Einmal Wasser kochen, für den ganzen Tag.</small></span></label>
+    <label><input type="checkbox" data-c="gas"><span>Gaskocher + 2 Kartuschen <small>Winter-Mix mit Propan. Nachkaufen geht bei Decathlon oder im Baumarkt.</small></span></label>
+    <label><input type="checkbox" data-c="lighter"><span>Feuerzeug + Streichhölzer <small>Piezo-Zünder versagen gern bei Kälte.</small></span></label>
   </div>
 </section>
 
@@ -696,7 +698,8 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
     <div class="port"><div class="pico">🔋</div><div><h5>2 Powerbanks</h5><span class="plug usba">USB-A 18 W</span><span class="plug usbc">USB-C, wenn frei</span><p>Beim Fahren laden, wenn ein USB-C frei ist, geht es schneller. Nur für unterwegs nutzen (Park, Wanderung). Handy lieber direkt an der EcoFlow laden, jeder Umweg über die Powerbank kostet ca. 20–30 %.</p></div><div class="pct">~4–5 %<small>pro 10.000 mAh</small></div></div>
     <div class="port"><div class="pico">🧊</div><div><h5>Kühlbox</h5><span class="plug v12">12-V-Autobuchse</span><p>Eure Box ist <b>thermoelektrisch</b> und zieht dauernd ca. 45 W, egal wie kalt es ist. 24 Stunden am Stück wären ca. 1.000 Wh, also der ganze Akku. Darum <b>nur beim Fahren laufen lassen</b>: am besten direkt an einer zweiten 12-V-Buchse im Auto (oft im Kofferraum), sonst an der 12-V-Buchse der EcoFlow. <b>Nachts und an Standtagen aus</b>, Deckel zu. Bei 0–10 °C draußen bleibt sie so lange kalt. <b>Nie</b> den 230-V-Stecker der Box an die EcoFlow-Steckdose.</p></div><div class="pct">ca. 4 %<small>pro Fahrstunde</small></div></div>
     <div class="port"><div class="pico">🔥</div><div><h5>Heizlüfter 400 W</h5><span class="plug ac">230-V-Steckdose</span><p>15 Min. ≈ 115 Wh. Nur kurz zum Vorwärmen, <b>nie im Schlaf</b> laufen lassen, Abstand zu Zeltstoff und Schlafsäcken.</p></div><div class="pct">~11 %<small>pro 15 Min.</small></div></div>
-    <div class="port"><div class="pico">🍳</div><div><h5>Herdplatte Niklas</h5><span class="plug ac">230-V-Steckdose</span><p>Die Leistung steht auf dem Typenschild unten an der Platte, meist 1.000–1.500 W. 1 Liter Wasser kochen ≈ 170 Wh. Nur draußen oder unter dem Vordach benutzen.</p></div><div class="pct">~17 %<small>pro Liter Wasser</small></div></div>
+    <div class="port"><div class="pico">🔥</div><div><h5>Gaskocher: euer Hauptkocher</h5><span class="plug" style="background:#e6efe9;color:#24493a">Kartusche, kein Strom</span><p>Kochen und Wasser heiß machen mit Gas, dann bleibt der Akku für Kühlbox, Heizlüfter und Geräte. <b>Nur draußen benutzen</b>, nie im Auto oder im Dachzelt (Kohlenmonoxid). Bei Kälte schwächelt reines Butan: <b>Winter-Kartuschen</b> mit Propan-Mix nehmen und die Kartusche vor dem Kochen in der Jackentasche anwärmen, besonders morgens in Südtirol.</p></div><div class="pct">0 %<small>Akku</small></div></div>
+    <div class="port"><div class="pico">🍳</div><div><h5>Herdplatte Niklas: nur Reserve</h5><span class="plug ac">230-V-Steckdose</span><p>Nur wenn das Gas leer ist oder ihr irgendwo Landstrom habt. Die Leistung steht auf dem Typenschild unten an der Platte, meist 1.000–1.500 W. 1 Liter Wasser kochen ≈ 170 Wh.</p></div><div class="pct">~17 %<small>pro Liter Wasser</small></div></div>
     <div class="portkey">
       <span><span class="plug ac">AC</span> 230 V, zusammen 1.800 W</span>
       <span><span class="plug usbc">USB-C</span> 1× 100 W + 1× 30 W</span>
@@ -727,13 +730,13 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
       <span class="stand">Fr 23<small>kaum</small></span><span class="stand">Sa 24<small>kaum</small></span><span>So 25<small>1,5 h</small></span><span>Mo 26<small>1,5 h</small></span>
       <span class="stand">Di 27<small>kaum</small></span><span>Mi 28<small>3 h</small></span><span>Do 29<small>2,5 h</small></span><span>Fr 30<small>3 h</small></span>
     </div>
-    <p class="note" style="margin:10px 0 0">Ehrlich gesagt: Handys, MacBook und Kühlbox schafft das Laden beim Fahren locker. <b>Heizlüfter und Herdplatte jeden Tag schafft es nicht.</b> Dafür braucht ihr alle 2–3 Tage eine Stunde an einer 230-V-Steckdose, am wichtigsten an den Standtagen in Südtirol (Fr 23./Sa 24.). Ein kleiner Gaskocher für Kartuschen würde den Akku am meisten entlasten.</p>
+    <p class="note" style="margin:10px 0 0">Ehrlich gesagt: Handys, MacBook und Kühlbox schafft das Laden beim Fahren locker. Weil ihr mit Gas kocht, bleibt nur der Heizlüfter als großer Verbraucher. Mit 15–20 Minuten Heizlüfter am Tag reicht der Akku ca. 5 Tage. Plant trotzdem einmal pro Woche eine Stunde an einer 230-V-Steckdose ein, am besten an den Standtagen in Südtirol (Fr 23./Sa 24.) oder am Gardasee (Di 27.).</p>
   </div>
 
   <div class="card calc" style="margin-top:12px">
     <div class="note"><b style="color:var(--ink)">Akku-Rechner</b>: stell ein, was ihr pro Tag braucht.</div>
     <label>🔥 Heizlüfter <span class="val" id="v-heat"></span><input type="range" id="c-heat" min="0" max="120" step="5" value="20"></label>
-    <label>🍳 Herdplatte <span class="val" id="v-plate"></span><input type="range" id="c-plate" min="0" max="60" step="5" value="10"></label>
+    <label>🍳 Herdplatte <span class="val" id="v-plate"></span><input type="range" id="c-plate" min="0" max="60" step="5" value="0"></label>
     <label>Leistung der Herdplatte</label>
     <div class="seg" id="c-platew"><button type="button" data-v="1000">1.000 W</button><button type="button" data-v="1500" class="on">1.500 W</button><button type="button" data-v="2000">2.000 W</button></div>
     <label>🧊 Kühlbox</label>
@@ -838,7 +841,7 @@ footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center
   });
 
   var CAP=1024, INV=1/0.88;
-  var calc=Object.assign({heat:20,plate:10,platew:1500,cool:-1,mac:1,pb:1,drive:2},state.calc||{});
+  var calc=Object.assign({heat:20,plate:0,platew:1500,cool:-1,mac:1,pb:1,drive:2},state.calc||{});
   if(calc.cool===150)calc.cool=-1;
   var rng={heat:'#c-heat',plate:'#c-plate',mac:'#c-mac',pb:'#c-pb',drive:'#c-drive'};
   Object.keys(rng).forEach(function(k){var el=$(rng[k]);el.value=calc[k];el.addEventListener('input',function(){calc[k]=parseFloat(el.value);runCalc(true);});});
