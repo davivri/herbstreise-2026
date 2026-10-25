@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f3d31">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Willich-Tour">
+<title>Herbsttour Willich · 26.–28.10.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4ecdf; --card:#fffaf1; --ink:#1c2822; --muted:#66706a; --line:#e3d6c1;
+  --forest:#24493a; --rust:#c0532a; --lake:#2a6b8b; --gold:#c98f22; --berry:#8e3b46;
+  --r:18px; --shadow:0 1px 0 rgba(0,0,0,.04),0 8px 24px -12px rgba(40,30,10,.25);
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Figtree",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--body);-webkit-font-smoothing:antialiased;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .18 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+a{color:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 16px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fbf4e6;background:linear-gradient(170deg,#173328 0%,#24493a 45%,#2a6b8b 100%);padding:calc(28px + env(safe-area-inset-top)) 0 0}
+.hero .kicker{font:700 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;opacity:.75}
+.hero h1{font:900 clamp(44px,13vw,72px)/.92 var(--display);margin:10px 0 6px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;font-weight:500;color:#f2c46b}
+.hero .sub{font:500 17px/1.35 var(--body);opacity:.9;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px}
+.stat{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px 8px;text-align:center;backdrop-filter:blur(4px)}
+.stat b{display:block;font:800 22px/1 var(--display)}
+.stat span{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.mountains{display:block;width:100%;height:auto;margin-top:-4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.legend span{font:600 12px/1 var(--body);padding:7px 10px;border-radius:99px;background:rgba(255,255,255,.12);display:inline-flex;align-items:center;gap:6px}
+.legend i{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+/* STICKY NAV */
+.nav{position:sticky;top:0;z-index:20;background:rgba(244,236,223,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.nav .row{display:flex;gap:6px;overflow-x:auto;padding:8px 16px;scrollbar-width:none;max-width:680px;margin:0 auto}
+.nav .row::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;font:700 13px/1 var(--body);padding:9px 12px;border-radius:99px;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.nav .days a{min-width:44px;text-align:center;padding:7px 8px;font-size:12px;border-left:4px solid var(--rc)}
+.nav .days a small{display:block;font-weight:600;font-size:9px;opacity:.6;letter-spacing:.05em;margin-bottom:2px}
+.nav .days a.today{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* SECTIONS */
+section{padding:26px 0 6px}
+.h2{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.h2 h2{font:800 30px/1 var(--display);margin:0;letter-spacing:-.01em}
+.h2 .n{font:700 12px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:16px}
+.note{font-size:13px;color:var(--muted)}
+
+/* MAP */
+.mapcard{padding:8px 8px 14px}
+.map{width:100%;height:auto;display:block}
+.map .lbl{font:700 11px var(--body);fill:var(--ink);paint-order:stroke;stroke:#fffaf1;stroke-width:4px;stroke-linejoin:round}
+.map .lbl.sm{font-weight:600;font-size:9.5px;fill:#4d5852}
+.map .cty{font:800 9px var(--body);letter-spacing:.3em;fill:#b7aa93}
+.maplegend{display:flex;flex-wrap:wrap;gap:12px;padding:4px 10px 10px;font-size:12px;color:var(--muted)}
+.maplegend b{display:inline-block;width:22px;height:0;border-top:4px solid var(--rust);vertical-align:middle;margin-right:6px;border-radius:2px}
+.maplegend b.ret{border-top:4px dashed var(--gold)}
+.btnrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;border:0;cursor:pointer;font:700 14px/1.1 var(--body);padding:12px 14px;border-radius:12px;background:var(--ink);color:#fff}
+.btn.rust{background:var(--rust)} .btn.gold{background:var(--gold)} .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{font-size:13px;padding:9px 12px;border-radius:10px}
+
+/* KM BARS */
+.legs{display:grid;gap:7px;margin-top:4px}
+.leg{display:grid;grid-template-columns:44px 1fr 60px;align-items:center;gap:8px;font-size:13px}
+.leg .d{font-weight:800}
+.leg .bar{height:12px;border-radius:99px;background:#efe5d4;overflow:hidden}
+.leg .bar i{display:block;height:100%;border-radius:99px;background:var(--rc)}
+.leg .k{text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+
+/* WEATHER */
+.wx{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px;scrollbar-width:none}
+.wx::-webkit-scrollbar{display:none}
+.wxd{flex:none;width:68px;text-align:center;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--rc);border-radius:14px;padding:8px 4px}
+.wxd small{display:block;font:700 10px var(--body);letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+.wxd .i{font-size:26px;line-height:1.2;display:block;margin:2px 0}
+.wxd b{font:800 15px var(--display)}
+.wxd em{display:block;font-style:normal;font-size:10px;color:var(--muted);margin-top:2px;line-height:1.2}
+.wxd.pool{background:#e4f0f5;border-color:#bcd7e3}
+
+/* DAY CARDS */
+.region{margin:26px 0 10px;display:flex;align-items:center;gap:10px}
+.region h3{font:800 13px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;margin:0;color:var(--rc)}
+.region::after{content:"";flex:1;height:2px;background:var(--rc);opacity:.25;border-radius:2px}
+.r-an{--rc:var(--rust)} .r-st{--rc:var(--forest)} .r-ga{--rc:var(--lake)} .r-rk{--rc:var(--gold)}
+.day{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin:0 0 14px;overflow:hidden}
+.day::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--rc)}
+.day.today{outline:3px solid var(--ink);outline-offset:2px}
+.day.today .dhead::after{content:"HEUTE";position:absolute;top:12px;right:12px;background:var(--ink);color:#fff;font:800 10px/1 var(--body);letter-spacing:.15em;padding:6px 8px;border-radius:6px}
+.dhead{position:relative;display:flex;gap:14px;padding:16px 16px 10px 22px}
+.date{flex:none;width:58px;text-align:center;border-radius:14px;background:var(--rc);color:#fff;padding:8px 0 7px}
+.date .dow{display:block;font:700 11px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.date .dn{display:block;font:900 30px/1 var(--display);margin:3px 0 1px}
+.date .mo{display:block;font:600 10px/1 var(--body);opacity:.8}
+.dtitle{min-width:0}
+.dtitle .tag{font:700 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--rc)}
+.dtitle h4{font:800 21px/1.15 var(--display);margin:5px 0 8px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{font:600 12px/1 var(--body);padding:6px 9px;border-radius:99px;background:#f1e8d8;color:#3c463f;white-space:nowrap}
+.pill.wet{background:#dfeef5;color:#20536b}
+.pill.sun{background:#fbecc8;color:#7a5410}
+.body{padding:0 16px 14px 22px}
+.act{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:12px 0;border-top:1px dashed var(--line)}
+.act:first-child{border-top:0}
+.act .ico{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;background:#f3eadb}
+.act h5{font:800 16px/1.25 var(--body);margin:2px 0 3px}
+.act p{margin:0 0 4px;font-size:14px;color:#38433d}
+.act ul{margin:4px 0 0;padding-left:18px;font-size:14px;color:#38433d}
+.act li{margin:2px 0}
+.ok{display:inline-block;font:800 10px/1 var(--body);letter-spacing:.06em;color:#2f6b3d;background:#e0efe2;padding:4px 6px;border-radius:6px;vertical-align:2px;margin-left:4px}
+.kids{display:grid;gap:6px;margin-top:8px}
+.kid{font-size:13px;padding:8px 10px;border-radius:10px;background:#f6efe2;display:flex;gap:8px}
+.kid b{flex:none}
+.alt{margin:8px 0 2px;padding:10px 12px;border-radius:12px;background:#e9f2f6;border:1px solid #cfe2ea;font-size:13.5px}
+.alt b{color:#1f5670}
+.warn{margin:8px 0 2px;padding:10px 12px;border-radius:12px;background:#fbefd9;border:1px solid #f0d9a8;font-size:13.5px}
+.navs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+
+/* NIGHT */
+.night{margin:4px 12px 12px 18px;border-radius:14px;background:#efe6d6;border:1px solid var(--line)}
+.night summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:12px 12px;font-size:14px}
+.night summary::-webkit-details-marker{display:none}
+.night .moon{width:30px;height:30px;border-radius:50%;background:#1f2f45;color:#f7d77a;display:grid;place-items:center;font-size:15px;flex:none}
+.night .sum-txt{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sum-status{font:800 10px/1 var(--body);letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;border-radius:6px;background:#fff;color:var(--muted)}
+.sum-status[data-s="idee"]{background:#fbecc8;color:#7a5410}
+.sum-status[data-s="fix"]{background:#2f6b3d;color:#fff}
+.night summary::after{content:"✎";font-size:15px;color:var(--muted)}
+.night[open] summary::after{content:"▴"}
+.nform{display:grid;gap:10px;padding:0 12px 14px}
+.nform label{display:grid;gap:4px;font:700 12px/1.2 var(--body);color:#4a554e}
+.nform input,.nform textarea{font:500 16px/1.3 var(--body);color:var(--ink);background:#fffaf1;border:1.5px solid var(--line);border-radius:10px;padding:10px 11px;width:100%;-webkit-appearance:none}
+.nform input:focus,.nform textarea:focus{outline:none;border-color:var(--rc)}
+.st{display:flex;gap:6px}
+.st button{flex:1;font:700 13px var(--body);padding:10px 6px;border-radius:10px;border:1.5px solid var(--line);background:#fffaf1;color:var(--muted);cursor:pointer}
+.st button.on[data-s="offen"]{background:#fff;border-color:#9aa39d;color:var(--ink)}
+.st button.on[data-s="idee"]{background:#fbecc8;border-color:#e2b85c;color:#6b4a0c}
+.st button.on[data-s="fix"]{background:#2f6b3d;border-color:#2f6b3d;color:#fff}
+.nrow{display:flex;flex-wrap:wrap;gap:8px}
+
+/* OVERVIEW */
+.nlist{display:grid;gap:6px}
+.nl{display:grid;grid-template-columns:52px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--rc);text-decoration:none}
+.nl .dt{font:800 13px/1.1 var(--body)}
+.nl .dt small{display:block;font-weight:600;color:var(--muted);font-size:11px}
+.nl .nm{font-size:14px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nl .nm.empty{color:var(--muted);font-style:italic}
+.progress{height:10px;border-radius:99px;background:#e9dfcc;overflow:hidden;margin:6px 0 12px}
+.progress i{display:block;height:100%;background:#2f6b3d;width:0;transition:width .4s}
+
+/* SWAPS & CHECKS */
+.swap{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;padding:10px 0;border-top:1px dashed var(--line);font-size:14px}
+.swap:first-of-type{border-top:0}
+.swap .x{font-size:18px;color:var(--muted)}
+.swap span{background:#f3eadb;padding:8px 10px;border-radius:10px;text-align:center;font-weight:600}
+.swap span.in{background:#dfeef5;color:#1f5670}
+.swaplabel{font:800 11px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.checks label{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--line);font-size:14.5px;cursor:pointer}
+.checks label:first-child{border-top:0}
+.checks input{flex:none;width:22px;height:22px;accent-color:#2f6b3d;margin-top:1px}
+.checks input:checked + span{color:var(--muted);text-decoration:line-through}
+.checks small{display:block;color:var(--muted);font-size:12.5px;text-decoration:none}
+/* STROM */
+.battery-hero{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.batt{flex:none;width:48px;height:80px;border:3px solid var(--ink);border-radius:10px;position:relative}
+.batt::before{content:"";position:absolute;top:-8px;left:14px;width:14px;height:5px;background:var(--ink);border-radius:3px 3px 0 0}
+.batt i{position:absolute;left:3px;right:3px;bottom:3px;border-radius:6px;background:linear-gradient(#6fbf7e,#2f6b3d);height:calc(var(--lvl,100) * 0.9%);transition:height .4s}
+.battery-hero b{display:block;font:900 34px/1 var(--display)}
+.battery-hero span{font-size:13px;color:var(--muted)}
+.fits{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.fit{background:#f3eadb;border-radius:14px;padding:12px 8px;text-align:center}
+.fit b{display:block;font:900 24px/1.1 var(--display)}
+.fit span{font-size:12px;color:var(--muted)}
+.ports .port{display:grid;grid-template-columns:40px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-top:1px dashed var(--line)}
+.ports .port:first-child{border-top:0}
+.pico{font-size:21px;width:40px;height:40px;border-radius:12px;background:#f3eadb;display:grid;place-items:center}
+.port h5{margin:0 0 4px;font:800 15px/1.2 var(--body)}
+.port p{margin:4px 0 0;font-size:12.5px;color:#4a554e}
+.plug{display:inline-block;font:800 10.5px/1 var(--body);padding:5px 7px;border-radius:7px;color:#fff;white-space:nowrap;margin:0 4px 2px 0}
+.applist .app{display:grid;grid-template-columns:40px 1fr;gap:10px;padding:12px 0;border-top:1px dashed var(--line);text-decoration:none;color:inherit}
+.applist .app:first-child{border-top:0}
+.app h5{margin:0 0 3px;font:800 15px/1.2 var(--body)}
+.app h5 small{font-weight:600;color:var(--muted)}
+.app p{margin:3px 0 0;font-size:12.5px;color:#4a554e}
+.where{display:grid;gap:8px;margin-top:12px}
+.where div{padding:10px 12px;border-radius:12px;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--rc);font-size:13.5px}
+.where b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.appchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.appchips a{font:700 12px/1 var(--body);padding:7px 9px;border-radius:9px;background:#f3eadb;color:var(--ink);text-decoration:none}
+.plug.usbc{background:#2a6b8b}.plug.usba{background:#3d8a7a}.plug.v12{background:#c98f22}.plug.ac{background:#c0532a}
+.pct{text-align:right;font:800 15px/1.1 var(--display);white-space:nowrap}
+.pct small{display:block;font:600 11px var(--body);color:var(--muted)}
+.portkey{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px;font-size:12px;color:#4a554e}
+.rules{margin:0;padding-left:20px;font-size:14px}
+.rules li{margin:0 0 9px}
+.drive{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.drive span{font:700 12px/1.1 var(--body);padding:7px 9px;border-radius:10px;background:#e0efe2;color:#2f6b3d;text-align:center}
+.drive span small{display:block;font-weight:600;font-size:10px;opacity:.8}
+.drive span.stand{background:#fbefd9;color:#7a5410}
+.calc label{display:block;font:700 13px var(--body);margin:14px 0 4px}
+.calc label .val{float:right;font-weight:800;color:var(--rust)}
+.calc input[type=range]{width:100%;accent-color:var(--rust);margin:0}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;font:700 13px var(--body);padding:9px 4px;border-radius:10px;border:1.5px solid var(--line);background:#fffaf1;color:var(--muted);cursor:pointer}
+.seg button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.stack{display:flex;height:18px;border-radius:99px;overflow:hidden;background:#efe5d4;margin:12px 0 6px}
+.stack i{display:block;height:100%}
+.skey{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;color:#4a554e}
+.skey b{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.result{padding:12px 14px;border-radius:12px;margin-top:12px;font-size:14px}
+.result.good{background:#e0efe2}.result.bad{background:#fbefd9}
+.result big{display:block;font:900 22px/1.15 var(--display);margin-bottom:2px}
+
+footer{padding:30px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:12px;color:var(--muted)}
+
+#toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,30px);opacity:0;background:var(--ink);color:#fff;font:700 13px var(--body);padding:10px 16px;border-radius:99px;transition:.25s;z-index:50;pointer-events:none}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#todayBtn{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:40;display:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
+.banner{display:none;margin:14px 0 0;padding:12px 14px;border-radius:12px;background:#f8dede;border:1px solid #e9b4b4;font-size:13.5px}
+
+@media (prefers-reduced-motion:no-preference){
+  .day,.card{animation:rise .5s both}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">26.–28. Oktober 2026 · Vater-Sohn-Tour</div>
+    <h1>Herbst&shy;tour <em>Willich</em></h1>
+    <p class="sub">Potsdam → Wolfsburg → Teutoburger Wald → Niederrhein</p>
+    <div class="stats">
+      <div class="stat"><b>3</b><span>Tage</span></div>
+      <div class="stat"><b>2</b><span>Nächte</span></div>
+      <div class="stat"><b>~650</b><span>km</span></div>
+      <div class="stat"><b>2</b><span>Ziele</span></div>
+    </div>
+    <div class="legend">
+      <span><i style="background:#e0784a"></i>Wolfsburg</span>
+      <span><i style="background:#7fc29b"></i>Teutoburger Wald</span>
+      <span><i style="background:#f2c46b"></i>Niederrhein</span>
+    </div>
+    <div class="banner" id="nostore">Speichern geht in dieser Ansicht nicht. Öffne die Seite in Safari oder Chrome, dann bleiben deine Übernachtungen gespeichert.</div>
+  </div>
+  <svg class="mountains" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 60 L0 40 L50 28 L92 36 L140 22 L190 38 L240 26 L290 40 L340 24 L400 36 L400 60Z" fill="#f4ecdf" opacity=".22"/>
+    <path d="M0 60 L0 48 L60 38 L110 46 L170 36 L230 48 L290 38 L350 48 L400 42 L400 60Z" fill="#f4ecdf"/>
+  </svg>
+</header>
+
+<nav class="nav">
+  <div class="row">
+    <a href="#route">🗺 Route</a><a href="#wetter">⛅ Wetter</a><a href="#tage">📅 Tage</a><a href="#naechte">🌙 Nächte</a><a href="#regen">☔ Plan B</a><a href="#check">✅ Checkliste</a><a href="#backup">💾 Backup</a>
+  </div>
+  <div class="row days">
+    <a href="#d26" class="r-an" data-d="2026-10-26"><small>MO</small>26</a>
+    <a href="#d27" class="r-st" data-d="2026-10-27"><small>DI</small>27</a>
+    <a href="#d28" class="r-rk" data-d="2026-10-28"><small>MI</small>28</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ROUTE -->
+<section id="route">
+  <div class="h2"><h2>Die Route</h2><span class="n">nach Westen</span></div>
+  <div class="card mapcard">
+    <svg class="map" viewBox="0 0 340 215" role="img" aria-label="Routenkarte">
+      <text class="cty" x="250" y="120">NIEDERSACHSEN</text>
+      <text class="cty" x="70" y="205">NRW</text>
+      <g fill="#e2d8c4" opacity=".9">
+        <path d="M112 102 l12 -20 l12 20z"/><path d="M128 104 l14 -24 l14 24z"/><path d="M146 100 l10 -16 l10 16z"/>
+      </g>
+      <polyline points="322,26 220,23 136,95 125,64" fill="none" stroke="#c0532a" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="125,64 16,133 29,174" fill="none" stroke="#c98f22" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="125,64 46,140 29,174" fill="none" stroke="#c98f22" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="#fffaf1" stroke="#1c2822" stroke-width="2">
+        <circle cx="136" cy="95" r="4.5"/><circle cx="16" cy="133" r="4.5"/><circle cx="46" cy="140" r="4.5"/>
+      </g>
+      <g font-family="Figtree,sans-serif" font-weight="800" font-size="10" text-anchor="middle">
+        <circle cx="322" cy="26" r="11" fill="#1c2822"/><text x="322" y="30" fill="#fff">⌂</text>
+        <circle cx="220" cy="23" r="10" fill="#c0532a"/><text x="220" y="27" fill="#fff">1</text>
+        <circle cx="125" cy="64" r="10" fill="#24493a"/><text x="125" y="68" fill="#fff">2</text>
+        <circle cx="29" cy="174" r="11" fill="#c98f22"/><text x="29" y="178" fill="#fff">★</text>
+      </g>
+      <text class="lbl" x="268" y="50">Potsdam</text>
+      <text class="lbl" x="200" y="44">Wolfsburg</text><text class="lbl sm" x="200" y="55">Autostadt</text>
+      <text class="lbl" x="140" y="60">Herford</text><text class="lbl sm" x="140" y="71">H2O</text>
+      <text class="lbl" x="146" y="112">Externsteine</text><text class="lbl sm" x="146" y="123">Silberbachtal</text>
+      <text class="lbl" x="22" y="124">Kevelaer</text><text class="lbl sm" x="22" y="113">Irrland</text>
+      <text class="lbl" x="56" y="150">Bottrop</text><text class="lbl sm" x="56" y="161">Skihalle</text>
+      <text class="lbl" x="44" y="190">Willich</text>
+    </svg>
+    <div class="maplegend"><span><b></b>Mo + Di</span><span><b style="border-color:#c98f22"></b>Mi über Irrland</span><span><b class="ret"></b>Mi über Bottrop</span><span>● Nacht-Nr.</span></div>
+    <div class="btnrow">
+      <a class="btn rust" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Potsdam&amp;destination=Willich&amp;waypoints=Autostadt%20Wolfsburg%7CExternsteine%20Horn-Bad%20Meinberg%7CH2O%20Herford%7CIrrland%20Kevelaer&amp;travelmode=driving">🗺 Über Irrland</a>
+      <a class="btn gold" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;origin=Potsdam&amp;destination=Willich&amp;waypoints=Autostadt%20Wolfsburg%7CExternsteine%20Horn-Bad%20Meinberg%7CH2O%20Herford%7Calpincenter%20Bottrop&amp;travelmode=driving">🗺 Über Bottrop</a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="note" style="margin-bottom:8px"><b style="color:var(--ink)">Fahrkilometer pro Tag</b> (ca.)</div>
+    <div class="legs">
+      <div class="leg r-an"><span class="d">Mo 26</span><span class="bar"><i style="width:72%"></i></span><span class="k">180 km</span></div>
+      <div class="leg r-st"><span class="d">Di 27</span><span class="bar"><i style="width:94%"></i></span><span class="k">235 km</span></div>
+      <div class="leg r-rk"><span class="d">Mi 28</span><span class="bar"><i style="width:100%"></i></span><span class="k">~250 km</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WEATHER -->
+<section id="wetter">
+  <div class="h2"><h2>Wetter</h2><span class="n">Stand 25.10.</span></div>
+  <div class="wx">
+    <div class="wxd r-an"><small>Mo 26</small><span class="i">🌧</span><b>12°</b><em>Regen möglich<br>Autostadt drinnen</em></div>
+    <div class="wxd r-st"><small>Di 27</small><span class="i">☁️</span><b>16°</b><em>eher trocken<br>Wandertag</em></div>
+    <div class="wxd r-rk"><small>Mi 28</small><span class="i">🌥</span><b>14°</b><em>eher trocken</em></div>
+  </div>
+  <p class="note">Dienstag ist im Teutoburger Wald der trockenste Tag (33 % Regenrisiko), darum dort wandern. <b>Abends kurz das Wetter für morgen checken</b> und bei Bedarf Plan B nehmen.</p>
+</section>
+
+<!-- DAYS -->
+<section id="tage">
+  <div class="h2"><h2>Tag für Tag</h2><span class="n">3 Tage</span></div>
+
+  <div class="region r-an"><h3>Wolfsburg</h3></div>
+  <article class="day r-an" id="d26" data-date="2026-10-26">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mo</span><span class="dn">26</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 1 · Autos</span><h4>Potsdam → Autostadt</h4>
+        <div class="pills"><span class="pill">🚗 ~180 km · 2 h · A2</span><span class="pill wet">🌧 ~12°</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🚙</div><div><h5>Autostadt Wolfsburg <span class="ok">✓ offen</span></h5>
+        <p>Täglich geöffnet, Pavillons und Familienbereich von 10 bis 18 Uhr. Bei Regen kein Problem, das meiste ist drinnen.</p>
+        <ul><li><b>Mobiversum:</b> der Familienbereich für Kinder</li><li><b>Tour and Tower:</b> Führung mit Fahrt im Autoturm auf 48 m, wochentags 12:30 und 16 Uhr, 15 € pro Person, Kinder ab 1 m</li><li>Die Rutschen draußen laufen nur bei gutem Wetter, bis Ende Oktober</li></ul>
+        <div class="kids"><div class="kid"><b>💶</b><span>Zwei Einzeltickets (21 € + 11 €) sind günstiger als das Kleinfamilien-Ticket (41 €). Ab 16 Uhr gibt es das Abendticket für 10 €.</span></div></div>
+      </div></div>
+      <div class="alt"><b>Tipp:</b> Übernachtet schon westlich von Wolfsburg, Richtung Hannover. Dann ist die Fahrt am Dienstag kürzer.</div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Autostadt%20Wolfsburg">📍 Navi</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.autostadt.de/service-kontakt/oeffnungszeiten">ℹ️ Zeiten</a></div>
+    </div>
+    <details class="night" data-night="26" data-hint="Raum Wolfsburg / Richtung Hannover"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 1</b> · <span class="sum-name">Raum Wolfsburg / Richtung Hannover</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="z. B. Hof bei Peine"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="52.32, 10.23 oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <div class="region r-st"><h3>Teutoburger Wald</h3></div>
+  <article class="day r-st" id="d27" data-date="2026-10-27">
+    <div class="dhead">
+      <div class="date"><span class="dow">Di</span><span class="dn">27</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 2 · Wandern + Rutschen</span><h4>Externsteine & H2O</h4>
+        <div class="pills"><span class="pill">🚗 ~190 km + 45 km</span><span class="pill">☁️ ~16°</span><span class="pill">🥾 3–4 h</span></div></div>
+    </div>
+    <div class="body">
+      <div class="act"><div class="ico">🥾</div><div><h5>Externsteine – Silberbachtal – Externsteine</h5>
+        <p>12,7 km, ca. 4 Stunden, 300 Höhenmeter, mittelschwer, als familienfreundlich markiert. Start an den Felsen der Externsteine, dann über Pfade, Holzbrücken und Blocksteinfelder durchs Silberbachtal. Auf halber Strecke könnt ihr in der Silbermühle einkehren, zurück geht es über den Hermannsweg.</p>
+        <ul><li>Am Start auf die Externsteine klettern, oben gibt es eine Aussichtsplattform</li><li>Festes Schuhwerk, die Pfade sind nach Regen rutschig</li><li>Der Parkplatz an den Externsteinen kostet Gebühr</li></ul>
+        <div class="kids"><div class="kid"><b>🧒</b><span>Zu lang? Kurze Variante, ca. 3 Stunden: Rundweg <b>OH! 7</b> durchs Silberbachtal (5 km, kostenloser Parkplatz „Neuer Teich“ in Leopoldstal) plus Erlebnisrundweg <b>„Knickenhagen“</b> an den Externsteinen (2,5 km mit Spiel- und Kletterstationen).</span></div></div>
+      </div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Externsteinstra%C3%9Fe%2035%2C%2032805%20Horn-Bad%20Meinberg">📍 Externsteine</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.outdooractive.com/de/route/wanderung/teutoburger-wald/externsteine-silberbachtal-externsteine/117441159/">🥾 Route 12,7 km</a></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Neuer%20Teich%2042%2C%2032805%20Leopoldstal">📍 Neuer Teich</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.teutoburgerwald.de/natur/in-der-natur/tour/ueber-stock-und-stein-durch-das-silberbachtal-oh-7">🥾 OH! 7</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.teutoburgerwald.de/natur/in-der-natur/tour/kinder-erlebnis-route-knickhagen-an-den-externsteinen-oh-6">🥾 Knickenhagen</a></div>
+      <div class="act"><div class="ico">🌊</div><div><h5>H2O Herford <span class="ok">✓ bis 21 Uhr</span></h5>
+        <p>Danach aufwärmen und rutschen, ca. 45 km von den Externsteinen.</p>
+        <ul><li><b>Jungle Cone:</b> 146 m auf Reifen, zu zweit möglich, mit Trefferpunkten und Zeitmessung</li><li><b>Thunderbird:</b> 110 m mit Video-Effekten und Sprung in der Mitte</li><li>Wellenbad, Wildbach, beheiztes 25-m-Außenbecken</li><li>Kassenschluss 20 Uhr, Kinder bis 15 zahlen ermäßigt</li></ul>
+      </div></div>
+      <div class="alt"><b>Schlafplatz-Idee:</b> Das H2O hat 22 Wohnmobil-Stellplätze (2 € pro Stunde, max. 14 € für 24 Stunden). Ob ein Auto mit Dachzelt dort stehen darf, an der Kasse fragen.</div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=H2O%20Herford%2C%20Wiesestra%C3%9Fe%2090%2C%2032052%20Herford">📍 Navi H2O</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.h2o-herford.de/rund-ums-h2o/oeffnungszeiten">ℹ️ Zeiten</a></div>
+    </div>
+    <details class="night" data-night="27" data-hint="Raum Herford / Externsteine"><summary><span class="moon">☾</span><span class="sum-txt"><b>Nacht 2</b> · <span class="sum-name">Raum Herford / Externsteine</span></span><span class="sum-status" data-s="offen">offen</span></summary>
+      <div class="nform"><label>Wo schlaft ihr?<input data-f="name" placeholder="z. B. Stellplatz am H2O"></label><label>Adresse, Koordinaten oder Maps-Link<input data-f="addr" placeholder="52.11, 8.67 oder https://…"></label><label>Notiz<textarea data-f="note" rows="2" placeholder="Kosten, Code, Ankunft …"></textarea></label><div class="st"><button type="button" data-s="offen">offen</button><button type="button" data-s="idee">Idee</button><button type="button" data-s="fix">fix ✓</button></div><div class="nrow"><a class="nmaps btn sm" hidden target="_blank" rel="noopener">📍 In Maps öffnen</a></div></div>
+    </details>
+  </article>
+
+  <div class="region r-rk"><h3>Niederrhein</h3></div>
+  <article class="day r-rk" id="d28" data-date="2026-10-28">
+    <div class="dhead">
+      <div class="date"><span class="dow">Mi</span><span class="dn">28</span><span class="mo">Okt</span></div>
+      <div class="dtitle"><span class="tag">Tag 3 · Ankommen</span><h4>Auf nach Willich</h4>
+        <div class="pills"><span class="pill">🚗 ~200 km + 50 km</span><span class="pill">🌥 ~14°</span></div></div>
+    </div>
+    <div class="body">
+      <p class="note" style="margin:0 0 4px">Eins von beiden, je nach Lust:</p>
+      <div class="act"><div class="ico">🎡</div><div><h5>A · Irrland, Kevelaer <span class="ok">✓ bis 1.11.</span></h5>
+        <p>Freizeitpark für Kinder bis 12 mit über 90 Attraktionen: Klettern, Rutschen, Sandberge, Tiere und mehrere Indoor-Hallen für Regen.</p>
+        <ul><li><b>Tickets nur online</b>, es gibt keine Tageskasse</li><li>Parken kostenlos, eigenes Essen erlaubt</li><li>Wechselkleidung einpacken</li><li>Von dort ca. 45 km bis Willich</li></ul>
+      </div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Irrland%2C%20Am%20Scheidweg%201%2C%2047624%20Kevelaer">📍 Navi Irrland</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://www.irrland.de/">🎟 Tickets</a></div>
+      <div class="act"><div class="ico">⛷</div><div><h5>B · alpincenter Bottrop <span class="ok">✓ Herbstferien täglich</span></h5>
+        <p>Mit 640 m die längste Indoor-Skipiste der Welt, mitten im Ruhrgebiet. Mit Skischule, auch für Anfänger und Kinder.</p>
+        <ul><li>Warme Kleidung und Handschuhe mitnehmen</li><li>Tickets vorher online holen</li><li>Von dort ca. 50 km bis Willich</li></ul>
+      </div></div>
+      <div class="navs"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=alpincenter%20Bottrop">📍 Navi Bottrop</a><a class="btn sm ghost" target="_blank" rel="noopener" href="https://tickets-bottrop.alpincenter.com">🎟 Tickets</a></div>
+      <div class="navs"><a class="btn sm gold" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Willich">📍 Navi: Willich</a></div>
+    </div>
+  </article>
+</section>
+
+<!-- NIGHTS OVERVIEW -->
+<section id="naechte">
+  <div class="h2"><h2>Übernachtungen</h2><span class="n" id="nightcount">0 / 2 fix</span></div>
+  <div class="progress"><i id="nightbar"></i></div>
+  <div class="nlist" id="nightlist"></div>
+  <p class="note">Tippe auf eine Nacht, um sie zu bearbeiten. Alles wird automatisch auf diesem Handy gespeichert. Als Adresse gehen auch Koordinaten oder ein kopierter Google-Maps-Link. In jeder Nacht findest du unten Links zu den passenden Schlafplatz-Apps.</p>
+</section>
+
+<!-- PLAN B -->
+<section id="regen">
+  <div class="h2"><h2>Plan B</h2><span class="n">Wenn's regnet</span></div>
+  <div class="card">
+    <div class="swaplabel">Dienstag</div>
+    <div class="swap"><span>Große Runde 12,7 km</span><span class="x">⇄</span><span>Kurze Runde OH! 7</span></div>
+    <div class="swap"><span>Wandern</span><span class="x">→</span><span class="in">Länger ins H2O</span></div>
+    <div class="swaplabel">Mittwoch</div>
+    <div class="swap"><span>Irrland draußen</span><span class="x">⇄</span><span class="in">Irrland Indoor-Hallen</span></div>
+    <div class="swap"><span>Irrland</span><span class="x">⇄</span><span class="in">Skihalle Bottrop</span></div>
+    <p class="note" style="margin:12px 0 0">Die Skihalle ist komplett drinnen und damit die sichere Wahl bei Dauerregen.</p>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="check">
+  <div class="h2"><h2>Checkliste</h2><span class="n">Abhaken</span></div>
+  <div class="card checks">
+    <label><input type="checkbox" data-c="irrland"><span>Irrland-Tickets online kaufen <small>Falls ihr Mittwoch dorthin wollt. Vor Ort gibt es keine Kasse.</small></span></label>
+    <label><input type="checkbox" data-c="shoes"><span>Wanderschuhe + Regenjacke <small>Für die Pfade im Silberbachtal.</small></span></label>
+    <label><input type="checkbox" data-c="hikefood"><span>Wanderproviant + Trinkflaschen</span></label>
+    <label><input type="checkbox" data-c="swim"><span>Badesachen + Handtücher <small>Für das H2O.</small></span></label>
+    <label><input type="checkbox" data-c="spare"><span>Wechselkleidung <small>Für Irrland und nach dem Wandern.</small></span></label>
+    <label><input type="checkbox" data-c="ski"><span>Warme Sachen + Handschuhe <small>Falls ihr in die Skihalle geht.</small></span></label>
+    <label><input type="checkbox" data-c="coins"><span>Kleingeld oder Karte <small>Parkplatz an den Externsteinen kostet.</small></span></label>
+    <label><input type="checkbox" data-c="eco"><span>EcoFlow voll + Autoladekabel</span></label>
+    <label><input type="checkbox" data-c="gas"><span>Gaskocher + Kartusche + Feuerzeug</span></label>
+    <label><input type="checkbox" data-c="lamp"><span>Stirnlampe <small>Ab 18 Uhr ist es dunkel.</small></span></label>
+  </div>
+</section>
+
+<!-- BACKUP -->
+<section id="backup">
+  <div class="h2"><h2>Backup</h2><span class="n">Sicher ist sicher</span></div>
+  <div class="card">
+    <p style="margin:0 0 12px;font-size:14px">Deine Übernachtungen und Häkchen werden <b>automatisch auf diesem Handy</b> gespeichert. Zum Sichern als Nachricht an dich selbst schicken.</p>
+    <div class="btnrow" style="padding:0">
+      <button class="btn" id="exp" type="button">⬆️ Backup teilen</button>
+      <button class="btn ghost" id="imp" type="button">⬇️ Backup laden</button>
+    </div>
+    <p class="note" style="margin:12px 0 0">Tipp fürs iPhone: In Safari „Teilen → Zum Home-Bildschirm“, dann öffnet sich der Plan wie eine App.</p>
+  </div>
+</section>
+
+<footer>Öffnungszeiten geprüft am 25.10.2026 · ✓ = für euren Tag bestätigt<br>Gute Fahrt, ihr zwei! 🍂</footer>
+</main>
+
+<button class="btn" id="todayBtn" type="button">📍 Heute</button>
+<div id="toast"></div>
+
+<script>
+(function(){
+  var KEY='willich26-v1', TOTAL=2;
+  var ok=true;
+  try{localStorage.setItem('_t','1');localStorage.removeItem('_t');}catch(e){ok=false;}
+  var state={nights:{},checks:{}};
+  if(ok){try{var s=JSON.parse(localStorage.getItem(KEY));if(s){state.nights=s.nights||{};state.checks=s.checks||{};}}catch(e){}}
+  if(!ok){document.getElementById('nostore').style.display='block';}
+  if(navigator.storage&&navigator.storage.persist){navigator.storage.persist().catch(function(){});}
+
+  function $(s,r){return (r||document).querySelector(s);}
+  function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+  var tt;function toast(m){var t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show');},1400);}
+  function save(quiet){if(!ok)return;try{localStorage.setItem(KEY,JSON.stringify(state));if(!quiet)toast('Gespeichert ✓');}catch(e){toast('Speichern fehlgeschlagen');}renderOverview();}
+  var ds;function debSave(){clearTimeout(ds);ds=setTimeout(function(){save();},600);}
+
+  function mapsLink(n){var a=(n.addr||'').trim();if(/^https?:\/\//i.test(a))return a;var q=a||(n.name||'').trim();return q?'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q):null;}
+  function setStatus(el,s){$$('.st button',el).forEach(function(b){b.classList.toggle('on',b.dataset.s===s);});var lab=$('.sum-status',el);lab.textContent=s==='fix'?'fix ✓':s;lab.dataset.s=s;}
+  function updateNightUI(el){var n=state.nights[el.dataset.night]||{};var l=mapsLink(n);var a=$('.nmaps',el);if(l){a.href=l;a.hidden=false;}else{a.hidden=true;}$('.sum-name',el).textContent=n.name?n.name:el.dataset.hint;}
+  function fillNight(el){var n=state.nights[el.dataset.night]||{};$$('[data-f]',el).forEach(function(i){i.value=n[i.dataset.f]||'';});setStatus(el,n.status||'offen');updateNightUI(el);}
+  function ensure(id){if(!state.nights[id])state.nights[id]={};return state.nights[id];}
+
+  var nights=$$('.night');
+  var APPS=[['Alpaca','https://www.alpacacamping.de/'],['DZN-Karte','https://dachzeltnomaden.com/stellplaetze-fuer-dachzeltnomaden/'],['1NiteTent','https://1nitetent.com/'],['park4night','https://park4night.com/de']];
+  nights.forEach(function(el){
+    var box=document.createElement('div');box.className='appchips';
+    box.innerHTML=APPS.map(function(a){return '<a target="_blank" rel="noopener" href="'+a[1]+'">🔎 '+a[0]+'</a>';}).join('');
+    $('.nform',el).appendChild(box);
+  });
+  nights.forEach(function(el){
+    var id=el.dataset.night;
+    fillNight(el);
+    $$('[data-f]',el).forEach(function(i){i.addEventListener('input',function(){ensure(id)[i.dataset.f]=i.value;updateNightUI(el);debSave();});});
+    $$('.st button',el).forEach(function(b){b.addEventListener('click',function(e){e.preventDefault();ensure(id).status=b.dataset.s;setStatus(el,b.dataset.s);save();});});
+  });
+
+  $$('input[data-c]').forEach(function(c){c.checked=!!state.checks[c.dataset.c];c.addEventListener('change',function(){state.checks[c.dataset.c]=c.checked;save();});});
+
+  function renderOverview(){
+    var list=$('#nightlist');list.innerHTML='';var fix=0;
+    nights.forEach(function(el,idx){
+      var id=el.dataset.night;var n=state.nights[id]||{};var st=n.status||'offen';if(st==='fix')fix++;
+      var day=el.closest('.day');var rc=getComputedStyle(day).getPropertyValue('--rc');
+      var dow=$('.dow',day).textContent;
+      var a=document.createElement('a');a.className='nl';a.href='#'+day.id;a.style.borderLeftColor=rc;
+      a.innerHTML='<span class="dt">'+dow+' '+id+'.<small>Nacht '+(idx+1)+'</small></span><span class="nm'+(n.name?'':' empty')+'"></span><span class="sum-status" data-s="'+st+'">'+(st==='fix'?'fix ✓':st)+'</span>';
+      a.querySelector('.nm').textContent=n.name||el.dataset.hint;
+      a.addEventListener('click',function(){el.open=true;});
+      list.appendChild(a);
+    });
+    $('#nightcount').textContent=fix+' / '+TOTAL+' fix';
+    $('#nightbar').style.width=(fix/TOTAL*100)+'%';
+  }
+  renderOverview();
+
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  var today=iso(new Date());var card=$('.day[data-date="'+today+'"]');
+  if(card){card.classList.add('today');var chip=$('.nav .days a[data-d="'+today+'"]');if(chip){chip.classList.add('today');}
+    var tb=$('#todayBtn');tb.style.display='inline-flex';tb.addEventListener('click',function(){card.scrollIntoView({behavior:'smooth',block:'start'});});}
+
+  $('#exp').addEventListener('click',function(){
+    var txt=JSON.stringify(state);
+    if(navigator.share){navigator.share({title:'Willich-Tour Backup',text:txt}).catch(function(){});return;}
+    if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('Backup kopiert ✓');},function(){prompt('Backup kopieren:',txt);});}
+    else{prompt('Backup kopieren:',txt);}
+  });
+  $('#imp').addEventListener('click',function(){
+    var t=prompt('Backup-Text hier einfügen:');if(!t)return;
+    try{var s=JSON.parse(t);state={nights:s.nights||{},checks:s.checks||{}};save(true);nights.forEach(fillNight);$$('input[data-c]').forEach(function(c){c.checked=!!state.checks[c.dataset.c];});toast('Backup geladen ✓');}
+    catch(e){alert('Das sieht nicht wie ein Backup aus.');}
+  });
+})();
+</script>
+</body>
+</html>
